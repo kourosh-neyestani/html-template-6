@@ -4318,6 +4318,7 @@ Forms
 .el-table .btn {
   display: block;
   font-size: 12px;
+  white-space: nowrap;
 }
 
 .el-table .btn i {
@@ -4331,6 +4332,21 @@ Forms
 
 .el-table .btn i.fa-times {
   right: 1px;
+}
+
+@media (max-width: 768px) {
+  .el-table .custom-hide {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .el-table .dataTables_wrapper .dataTables_filter {
+    width: 100%;
+  }
+  .el-table .dataTables_wrapper .dataTables_filter input {
+    width: 100%;
+  }
 }
 
 /*------------------------------------
@@ -5327,6 +5343,9 @@ Forms
 }
 
 @media (max-width: 768px) {
+  .el-panel .el-panel-body {
+    padding: 30px 15px;
+  }
   .el-panel .el-panel-body .el-panel-title h2 {
     font-size: 16px;
   }
@@ -5774,6 +5793,10 @@ Forms
   display: block;
   font-weight: 500;
   margin-bottom: 9px;
+}
+
+.el-list-check li .text {
+  padding-right: 9px;
 }
 
 .el-list-check li .icon {
@@ -6649,7 +6672,7 @@ Date Picker
 }
 
 .el-datepicker .bd-main {
-  background-color: #FFF;
+  background-color: #fff;
   border: 1px solid #000;
   padding: 5px;
   z-index: 9999;
@@ -6689,11 +6712,12 @@ Date Picker
   cursor: pointer;
 }
 
-.el-datepicker .bd-next, .el-datepicker .bd-prev {
+.el-datepicker .bd-next,
+.el-datepicker .bd-prev {
   cursor: pointer;
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  background-color: #FFF;
+  background-color: #fff;
   height: 30px;
   width: 30px;
   margin: 0;
@@ -6705,7 +6729,7 @@ Date Picker
 
 .el-datepicker .bd-table thead {
   background-color: #555555;
-  color: #FFF;
+  color: #fff;
 }
 
 .el-datepicker .bd-table thead tr {
@@ -6729,14 +6753,14 @@ Date Picker
 .el-datepicker .bd-table-days button {
   width: 30px;
   height: 30px;
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
   border: 0;
 }
 
 .el-datepicker .bd-table-days button:hover:enabled {
   color: red;
   font-weight: bold;
-  background-color: #E7E7E7;
+  background-color: #e7e7e7;
   cursor: pointer;
 }
 
@@ -6745,12 +6769,12 @@ Date Picker
 }
 
 .el-datepicker .bd-today {
-  background-color: #DFF0D8 !important;
+  background-color: #dff0d8 !important;
   color: green;
 }
 
 .el-datepicker .bd-holiday {
-  background-color: #FDE8E8 !important;
+  background-color: #fde8e8 !important;
 }
 
 .el-datepicker .bd-selected-day {
@@ -6761,7 +6785,7 @@ Date Picker
 .el-datepicker .bd-goto-today {
   width: 210px;
   height: 30px;
-  color: #FFF;
+  color: #fff;
   background-color: #555555;
   padding-top: 5px;
   cursor: pointer;
@@ -7241,6 +7265,7 @@ Custom Input Radio
 ------------------------------------*/
 .section-hero {
   width: 100%;
+  min-height: 690px !important;
   position: relative;
 }
 
@@ -7298,7 +7323,7 @@ Custom Input Radio
 
 .section-hero.section-hero-2 {
   height: 100vh;
-  min-height: 600px;
+  min-height: 690px !important;
 }
 
 .section-hero.section-hero-2 .hero-image {
@@ -8741,6 +8766,28 @@ testimonial
 /*------------------------------------
     Pages
 ------------------------------------*/
+.page .default-content {
+  margin-bottom: 30px;
+}
+
+.page .default-content h1 {
+  font-size: 33px;
+}
+
+.page .default-content h2 {
+  font-size: 27px;
+}
+
+.page .default-content p {
+  color: #333;
+  font-size: 15px;
+}
+
+.page .default-content img {
+  display: block;
+  margin: 0 auto 15px;
+}
+
 .page-content {
   max-width: 992px;
   margin: auto;
@@ -8880,6 +8927,13 @@ testimonial
           flex: 0 0 82%;
   max-width: 82%;
   padding-top: 82px;
+}
+
+@media (max-width: 992px) {
+  .section-dashboard .el-avatar {
+    margin: auto;
+    margin-bottom: 30px;
+  }
 }
 
 /*------------------------------------
