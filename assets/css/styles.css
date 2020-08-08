@@ -3100,6 +3100,24 @@ body {
   background-color: var(--primary);
 }
 
+.app-sidenav .sidenav-menu .sidenav-body .sidenav-body-inner .sidenav-menu-ul li {
+  color: var(--text-color) !important;
+  display: block;
+  height: 39px;
+  font-size: 12px;
+  line-height: 39px;
+  border-bottom: 1px solid var(--gray);
+}
+
+.app-sidenav .sidenav-menu .sidenav-body .sidenav-body-inner .sidenav-menu-ul li a {
+  font-size: 12px !important;
+}
+
+.app-sidenav .sidenav-menu .sidenav-body .sidenav-body-inner .sidenav-menu-ul li a b {
+  color: var(--base-1);
+  font-weight: bolder;
+}
+
 .app-sidenav .sidenav-menu .sidenav-body .mega-menu {
   top: -12px;
   height: 160px;
