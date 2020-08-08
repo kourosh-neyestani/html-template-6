@@ -8944,6 +8944,13 @@ testimonial
   list-style: none;
 }
 
+@media (max-width: 768px) {
+  .page .default-content p {
+    color: #333;
+    font-size: 12px;
+  }
+}
+
 /*------------------------------------
     How It Works
 ------------------------------------*/
