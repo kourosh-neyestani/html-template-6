@@ -2110,6 +2110,20 @@ body {
   margin-left: 45px;
 }
 
+.app-header .header-wrap .header-menu ul li > div {
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10+ and Edge */
+  -moz-user-select: none;
+       user-select: none;
+  /* Standard syntax */
+}
+
+.app-header .header-wrap .header-menu ul li > div .icon {
+  display: none !important;
+}
+
 .app-header .header-wrap .header-menu ul li > a {
   display: block;
 }
