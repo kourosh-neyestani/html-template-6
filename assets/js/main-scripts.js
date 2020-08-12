@@ -48,7 +48,7 @@
 
         $(".el-select2-teacher-skills").select2({
             dir: "rtl",
-            placeholder: "",
+            placeholder: "بر اساس روز",
             templateResult: formatDefault,
         });
 

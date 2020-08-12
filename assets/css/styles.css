@@ -3538,6 +3538,23 @@ Forms
   padding-right: 20px !important;
 }
 
+.form-3 .form-item .input-select-multiple {
+  overflow: hidden;
+  height: 45px !important;
+}
+
+.form-3 .form-item .input-select-multiple input {
+  height: 0 !important;
+  opacity: 0 !important;
+  min-height: inherit !important;
+}
+
+.form-3 .form-item .input-select-multiple .select2-selection__rendered {
+  top: 15px !important;
+  position: relative !important;
+  margin: 0 !important;
+}
+
 .form-3 .form-item .input-checkbox .checkbox-wrap {
   height: 21px;
   cursor: pointer;
