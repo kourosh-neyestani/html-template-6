@@ -8790,7 +8790,6 @@ testimonial
 .section-auth {
   min-height: 100vh;
   position: relative;
-  background-color: var(--base-0);
 }
 
 .section-auth .auth-form {
@@ -8799,10 +8798,12 @@ testimonial
   min-height: 100vh;
   z-index: 15;
   position: relative;
+  background-color: var(--base-0);
 }
 
 .section-auth .auth-form .form-3 {
   padding: 0 30px;
+  margin: auto;
 }
 
 .section-auth .auth-image {
