@@ -46,6 +46,12 @@
             templateResult: formatDefault,
         });
 
+        $(".el-select2-teacher-skills").select2({
+            dir: "rtl",
+            placeholder: "",
+            templateResult: formatDefault,
+        });
+
         $(".el-select2-select-hour").select2({
             dir: "rtl",
             placeholder: "",
