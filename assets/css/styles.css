@@ -7464,6 +7464,20 @@ Element: Modal
   transform: translate(-50%, -50%);
 }
 
+.el-modal-overlay .modal-close-xx {
+  top: 15px;
+  right: 15px;
+  width: 45px;
+  height: 45px;
+  display: block;
+  z-index: 15;
+  font-size: 21px;
+  color: var(--primary);
+  line-height: 45px;
+  text-align: center;
+  position: absolute;
+}
+
 .el-modal-overlay .modal-close-overlay {
   top: 0;
   left: 0;
@@ -7597,11 +7611,13 @@ Element: Modal
 }
 
 .el-modal.modal-xx {
-  width: 100%;
-  height: 100vh;
+  width: 100% !important;
+  height: 100vh !important;
   -webkit-box-shadow: 0;
           box-shadow: 0;
   border-radius: 0;
+  position: fixed;
+  background-color: #fff !important;
 }
 
 .el-modal.modal-danger {

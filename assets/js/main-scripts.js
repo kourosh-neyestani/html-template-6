@@ -128,7 +128,8 @@
         var btnModal = $("button[data-modal-id]");
         var btnClose = $(".el-modal-overlay .modal-close");
 
-        btnModal.on("click", function () {
+        btnModal.on("click", function (e) {
+            e.preventDefault();
             var data = $(this).data("modal-id");
             var overlay = $(".el-modal-overlay[data-modal-id=" + data + "]");
             var modal = overlay.find(".el-modal");
