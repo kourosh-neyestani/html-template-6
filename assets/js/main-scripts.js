@@ -451,6 +451,55 @@
         });
     };
 
+    /*====== Modal Tabs ======*/
+    AFRA.Test = function () {
+        var count = 0;
+    };
+
+    var selectedClassroomCount = 0;
+    var plan1 = document.getElementById("plan1_from_server").innerHTML; 
+    var plan2 = document.getElementById("plan2_from_server").innerHTML; 
+    var plan3 = document.getElementById("plan3_from_server").innerHTML; 
+    let course_price = document.getElementById("course_price_from_server").innerHTML; 
+
+    plan1 = parseInt(plan1); 
+    plan2 = parseInt(plan2); 
+     plan3 = parseInt(plan3); 
+     course_price = parseInt(course_price); 
+
+
+    let total_price = 0;
+    let final_price = total_price;
+    let discount_price = 0;
+    let user_plan = 0;
+   
+
+    AFRA.MathClassrooms = function () {
+
+
+
+
+    if (selectedClassroomCount > 0 && selectedClassroomCount <= 5) {
+        final_price = total_price - (total_price * plan1) / 100;
+        user_plan = plan1;
+    } else if (selectedClassroomCount > 5 && selectedClassroomCount <= 10) {
+        final_price = total_price - (total_price * plan2) / 100;
+        user_plan = plan2;
+    } else if (selectedClassroomCount > 10) {
+        final_price = total_price - (total_price * plan3) / 100;
+        user_plan = plan3;
+    }
+
+    discount_price = total_price - final_price;
+
+    document.getElementById("total_price").innerHTML = total_price;
+    document.getElementById("final_price").innerHTML = final_price;
+    document.getElementById("discount_price").innerHTML = discount_price;
+    document.getElementById("user_plan").innerHTML = user_plan;
+    document.getElementById("selectedClassroomCount").innerHTML = selectedClassroomCount;
+
+    }
+
     /*====== Calendar Select ======*/
     AFRA.CalendarSelect = function () {
         var form = $("#form-calendar-time");
@@ -468,6 +517,9 @@
                 form.find("input:last").remove();
                 $(this).removeClass("clicked");
                 alert("ساعت انتخاب شده با موفقیت حذف شد.");
+                selectedClassroomCount = selectedClassroomCount - 1;
+                total_price = total_price - course_price;
+                console.log(selectedClassroomCount);
             } else {
                 e.preventDefault();
                 $(this).addClass("clicked");
@@ -478,7 +530,13 @@
                 var end = $(this).data("calendar-end");
                 widget.append('<li><p><span class="time">' + weekday + " - " + start + " تا " + end + ' </span><span class="date">' + date + "</span></p></li>");
                 form.append('<input type="hidden" name="hours[]" value="' + time + '" />');
+                selectedClassroomCount = selectedClassroomCount + 1;
+                total_price = total_price + course_price;
             }
+
+
+            AFRA.MathClassrooms();
+           
         });
     };
 
@@ -561,7 +619,7 @@
     $(window).on("load", function () {});
 
     $(document).ready(function () {
-        AFRA.MultipleClassRooms(), AFRA.MegaMenu(), AFRA.Stepper(), AFRA.Counter(), AFRA.StickyHeader(), AFRA.StickySidebar(), AFRA.Sidenav(), AFRA.SidenavFilter(), AFRA.SidenavSorting(), AFRA.Select2(), AFRA.Accordion(), AFRA.FormSwitch(), AFRA.Calendar(), AFRA.CalendarTabs(), AFRA.CalendarSelect(), AFRA.Popover(), AFRA.UploadAvatar(), AFRA.DatePicker(), AFRA.Modal(), AFRA.ModalTabs();
+        AFRA.MultipleClassRooms(), AFRA.Test(), AFRA.MegaMenu(), AFRA.Stepper(), AFRA.Counter(), AFRA.StickyHeader(), AFRA.StickySidebar(), AFRA.Sidenav(), AFRA.SidenavFilter(), AFRA.SidenavSorting(), AFRA.Select2(), AFRA.Accordion(), AFRA.FormSwitch(), AFRA.Calendar(), AFRA.CalendarTabs(), AFRA.CalendarSelect(), AFRA.Popover(), AFRA.UploadAvatar(), AFRA.DatePicker(), AFRA.Modal(), AFRA.ModalTabs();
     });
 })(jQuery);
 

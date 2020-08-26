@@ -754,6 +754,17 @@
 <!--/-->
     <!--Wrapper-->
     <div class="app-wrapper">
+
+
+
+
+<div style="display: none;">
+    <span id="plan1_from_server">10</span>
+    <span id="plan2_from_server">50</span>
+    <span id="plan3_from_server">100</span>
+    <span id="course_price_from_server">1000</span>
+</div>
+
 <div class="page page-teacher">
     <!--Teacher Profile-->
     <section class="section section-teacher">
@@ -2625,10 +2636,11 @@
                         <div class="divider divider-line"></div>
                     </header>
                     <div>
-                        <h5>تعداد جلسات: <span class="text-primary">3 جلسه</span></h5>
-                        <h5>میزان تخفیف: <span class="text-primary">۱۰٪ تخفیف</span></h5>
-                        <h5>مبلغ کم شده: <span class="text-primary">24,000 تومان</span></h5>
-                        <h5>مبلغ کل پرداختی: <span class="text-primary">240,000 تومان</span></h5>
+                        <h5>تعداد جلسات: <span class="text-primary"><span id="selectedClassroomCount"></span> جلسه</span></h5>
+                        <h5>میزان تخفیف: <span class="text-primary"><span id="user_plan"></span>٪ تخفیف</span></h5>
+                        <h5>مبلغ کل: <span class="text-primary"><span id="total_price"></span> تومان</span></h5>
+                        <h5>مبلغ کم شده: <span class="text-primary"><span id="discount_price"></span> تومان</span></h5>
+                        <h5>مبلغ کل پرداختی: <span class="text-primary"><span id="final_price"></span> تومان</span></h5>
                     </div>
                     <hr>
                     <button class="button button-md button-block button-primary" onclick="document.getElementById('form-calendar-time').submit();">
