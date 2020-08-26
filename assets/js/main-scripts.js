@@ -122,6 +122,50 @@
         });
     };
 
+    /*====== Modal ======*/
+    AFRA.Modal = function () {
+        var body = $("body");
+        var btnModal = $("button[data-modal-id]");
+        var btnClose = $(".el-modal-overlay .modal-close");
+
+        btnModal.on("click", function () {
+            var data = $(this).data("modal-id");
+            var overlay = $(".el-modal-overlay[data-modal-id=" + data + "]");
+            var modal = overlay.find(".el-modal");
+            body.addClass("state-menu");
+            modal.addClass("active");
+            overlay.show();
+            overlay.addClass("active");
+            console.log(btnModal);
+        });
+
+        btnClose.on("click", function () {
+            var modal = $(".el-modal");
+            var overlay = $(".el-modal-overlay");
+            console.log("c");
+            body.removeClass("state-menu");
+            modal.removeClass("active");
+            overlay.hide();
+            overlay.removeClass("active");
+        });
+    };
+
+    /*====== Modal Tabs ======*/
+    AFRA.ModalTabs = function () {
+        var link = $("[data-modal-tab-link]");
+
+        link.on("click", function () {
+            var data = $(this).data("modal-tab-link");
+            var content = $("[data-modal-tab-content='" + data + "']");
+            if (!$(this).hasClass("active")) {
+                $(this).siblings().removeClass("active");
+                $(this).addClass("active");
+                content.siblings().removeClass("active");
+                content.addClass("active");
+            }
+        });
+    };
+
     /*====== Sticky Navigation Menu ======*/
     AFRA.StickyHeader = function () {
         var header = $(".app-header");
@@ -415,14 +459,14 @@
 
         hour.on("click", function (e) {
             if ($(this).hasClass("reserved")) {
-                alert("ساعت انتخاب شده رزرو شده است.")
+                alert("ساعت انتخاب شده رزرو شده است.");
             } else if ($(this).hasClass("inactive")) {
-                alert("ساعت انتخاب شده غیر فعال است.")
+                alert("ساعت انتخاب شده غیر فعال است.");
             } else if ($(this).hasClass("clicked")) {
                 widget.find("li:last").remove();
                 form.find("input:last").remove();
                 $(this).removeClass("clicked");
-                alert("ساعت انتخاب شده با موفقیت حذف شد.")
+                alert("ساعت انتخاب شده با موفقیت حذف شد.");
             } else {
                 e.preventDefault();
                 $(this).addClass("clicked");
@@ -516,7 +560,7 @@
     $(window).on("load", function () {});
 
     $(document).ready(function () {
-        AFRA.MultipleClassRooms(), AFRA.MegaMenu(), AFRA.Stepper(), AFRA.Counter(), AFRA.StickyHeader(), AFRA.StickySidebar(), AFRA.Sidenav(), AFRA.SidenavFilter(), AFRA.SidenavSorting(), AFRA.Select2(), AFRA.Accordion(), AFRA.FormSwitch(), AFRA.Calendar(), AFRA.CalendarTabs(), AFRA.CalendarSelect(), AFRA.Popover(), AFRA.UploadAvatar(), AFRA.DatePicker();
+        AFRA.MultipleClassRooms(), AFRA.MegaMenu(), AFRA.Stepper(), AFRA.Counter(), AFRA.StickyHeader(), AFRA.StickySidebar(), AFRA.Sidenav(), AFRA.SidenavFilter(), AFRA.SidenavSorting(), AFRA.Select2(), AFRA.Accordion(), AFRA.FormSwitch(), AFRA.Calendar(), AFRA.CalendarTabs(), AFRA.CalendarSelect(), AFRA.Popover(), AFRA.UploadAvatar(), AFRA.DatePicker(), AFRA.Modal(), AFRA.ModalTabs();
     });
 })(jQuery);
 
