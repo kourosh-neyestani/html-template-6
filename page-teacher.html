@@ -755,12 +755,7 @@
     <!--Wrapper-->
     <div class="app-wrapper">
 
-<div style="display: none;">
-    <span id="plan1_from_server">10</span>
-    <span id="plan2_from_server">50</span>
-    <span id="plan3_from_server">100</span>
-    <span id="course_price_from_server">1000</span>
-</div>
+<div id="pass-data-from-here" data-plan-1="10" data-plan-2="50" data-plan-3="100" data-course-price="1000" style="display: none"></div>
 
 <div class="page page-teacher">
     <!--Teacher Profile-->
@@ -911,7 +906,7 @@
                                         </ul>
                                     </div>
                                     <form id="form-calendar-time" action="http://httpbin.org/post" method="POST">
-                                        <button class="button button-md button-block button-primary" type="submit" data-modal-id="modal-select-classroom">
+                                        <button class="button button-md button-block button-primary" type="button" id="button-for-modal-classrooms" data-modal-id-classroom="modal-select-classroom">
                                             <span class="text">شروع رزرو کلاس</span>
                                         </button>
                                         <!-- <button class="button button-md button-block button-primary" type="button" data-modal-id="modal-login-form">
