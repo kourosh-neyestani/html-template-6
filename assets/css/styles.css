@@ -7717,69 +7717,31 @@ Element: Modal
   background-color: orange;
 }
 
-.section-hero.section-hero-2 {
-  height: 100vh;
-}
-
-.section-hero.section-hero-2 .hero-image {
-  width: 100%;
-  height: 100%;
-  z-index: 9;
-  text-align: center;
-  position: absolute;
-}
-
-.section-hero.section-hero-2 .hero-image img {
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  max-height: 300px;
-  position: absolute;
-}
-
-.section-hero.section-hero-2 .display-spacing {
-  z-index: 12;
+.section-hero.section-hero-2 .container {
+  z-index: 15;
   position: relative;
 }
 
-.section-hero.section-hero-2 .display-spacing .hero-content {
-  text-align: center;
-  padding-top: 90px;
+.section-hero.section-hero-2 .hero-image {
+  width: 750px;
+  max-width: 100%;
+  margin: auto;
 }
 
-.section-hero.section-hero-2 .display-spacing .hero-content h1 {
+.section-hero.section-hero-2 .hero-content {
+  overflow: hidden;
+  text-align: center;
+  padding-top: 210px;
+  margin-bottom: 111px;
+}
+
+.section-hero.section-hero-2 .hero-content h1 {
   font-size: 33px;
   font-weight: 700;
   margin-bottom: 18px;
 }
 
-.section-hero.section-hero-2 .display-spacing .hero-content h1 span {
-  z-index: 1;
-  position: relative;
-}
-
-.section-hero.section-hero-2 .display-spacing .hero-content h1 .text-border {
-  z-index: 1;
-  display: inline-block;
-  position: relative;
-  padding-left: 6px;
-  padding-right: 6px;
-}
-
-.section-hero.section-hero-2 .display-spacing .hero-content h1 .text-border:after {
-  left: 6px;
-  right: 6px;
-  bottom: 12px;
-  height: 12px;
-  content: "";
-  z-index: 0;
-  opacity: 0.3;
-  position: absolute;
-  background-color: orange;
-}
-
-.section-hero.section-hero-2 .display-spacing .hero-content h2 {
+.section-hero.section-hero-2 .hero-content h2 {
   color: #bbb;
   font-size: 30px;
   font-weight: 500;
@@ -7787,12 +7749,8 @@ Element: Modal
   margin-bottom: 30px;
 }
 
-.section-hero.section-hero-2 .display-spacing .hero-content h2 span {
+.section-hero.section-hero-2 .hero-content h2 span {
   color: var(--primary);
-}
-
-.section-hero.section-hero-2 .shape-3 {
-  opacity: .2;
 }
 
 .section-hero.section-hero-3 .hero-content {
@@ -7823,53 +7781,29 @@ Element: Modal
   position: absolute;
 }
 
-@media (min-width: 1300px) {
-  .section-hero.section-hero-2 {
-    min-height: 690px !important;
-  }
-}
-
-@media (min-width: 1200px) and (max-width: 1300px) {
-  .section-hero.section-hero-2 {
-    min-height: 570px !important;
-  }
-}
-
-@media (min-width: 992px) and (max-width: 1200px) {
-  .section-hero.section-hero-2 {
-    min-height: 570px !important;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 992px) {
-  .section-hero.section-hero-2 {
-    min-height: 510px;
-  }
-}
-
-@media (min-width: 576px) and (max-width: 768px) {
-  .section-hero.section-hero-2 {
-    min-height: 630px !important;
-  }
-}
-
-@media (max-width: 1300px) {
-  .section-hero.section-hero-2 .hero-image img {
-    height: 190px;
-  }
-}
-
 @media (max-width: 992px) {
-  .section-hero.section-hero-2 .display-spacing .hero-content {
-    padding-top: 60px;
+  .section-hero.section-hero-2 .hero-content {
+    padding-top: 150px;
+    margin-bottom: 60px;
   }
-  .section-hero.section-hero-2 .display-spacing .hero-content h1 {
-    font-size: 20px;
-    margin-bottom: 15px;
+  .section-hero.section-hero-2 .hero-content h1 {
+    font-size: 21px;
   }
-  .section-hero.section-hero-2 .display-spacing .hero-content h2 {
-    font-size: 18px;
-    margin-bottom: 30px;
+  .section-hero.section-hero-2 .hero-content h2 {
+    font-size: 19px;
+  }
+  .section-hero.section-hero-2 .hero-content .button {
+    width: calc(50% - 3px);
+    float: left;
+    margin: 0;
+  }
+  .section-hero.section-hero-2 .hero-content .button.button-default {
+    margin-left: 6px;
+  }
+  .section-hero.section-hero-2 .hero-content .button.button-primary {
+    width: 100%;
+    display: block;
+    margin-bottom: 6px;
   }
   .section-hero.section-hero-4.overlay-color .bg-color {
     opacity: 0.6 !important;
@@ -7880,25 +7814,6 @@ Element: Modal
   }
   .section-hero.section-hero-4 .hero-content h1 {
     font-size: 27px !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .section-hero.section-hero-2 .hero-image img {
-    bottom: 45px;
-    width: 90%;
-    height: auto;
-  }
-  .section-hero.section-hero-2 .display-spacing .hero-content {
-    padding-top: 30px;
-  }
-  .section-hero.section-hero-2 .display-spacing .hero-content .button {
-    width: 48%;
-    margin-bottom: 7px;
-  }
-  .section-hero.section-hero-2 .display-spacing .hero-content .button.button-primary {
-    width: 100%;
-    display: block;
   }
 }
 
@@ -9653,6 +9568,4 @@ testimonial
 .page-double-header {
   padding-top: 150px;
 }
-#preloader {
-  display: none !important;
-}
+/*# sourceMappingURL=styles.css.map */
