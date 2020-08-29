@@ -7613,6 +7613,7 @@ Element: Modal
 .el-modal.modal-xx {
   width: 100% !important;
   height: 100vh !important;
+  overflow-y: scroll;
   -webkit-box-shadow: 0;
           box-shadow: 0;
   border-radius: 0;
@@ -7652,6 +7653,32 @@ Element: Modal
 
 .el-modal.active {
   opacity: 1;
+}
+
+.el-modal:not(.modal-xx) {
+  max-width: 90% !important;
+}
+
+.el-modal .el-heading p {
+  font-size: 14px;
+}
+
+@media (max-width: 992px) {
+  .el-modal-overlay .modal-wrapper {
+    width: 100%;
+  }
+  .el-modal .el-heading p {
+    font-size: 12px;
+  }
+  .el-modal.modal-xx h5 {
+    font-size: 14px;
+  }
+  .el-modal .modal-tabs .modal-tabs-body li {
+    padding: 15px !important;
+  }
+  .el-modal-overlay .modal-close-xx {
+    right: 0;
+  }
 }
 
 /*------------------------------------
