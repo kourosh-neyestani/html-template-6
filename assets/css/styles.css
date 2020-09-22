@@ -2102,6 +2102,11 @@ body {
   width: 100%;
 }
 
+.app-header .header-wrap .header-menu > ul > li {
+  height: 80px; 
+  line-height: 80px;
+}
+
 .app-header .header-wrap .header-menu > ul > li > a {
   height: 80px;
   line-height: 80px;
