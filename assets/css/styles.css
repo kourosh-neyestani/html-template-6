@@ -8801,6 +8801,8 @@ testimonial
 .section-teachers .card .inner .details p {
   font-size: 12px;
   margin-bottom: 12px;
+  height: 42px;
+  overflow: hidden;
 }
 
 .section-teachers .card .inner .details h3 {
