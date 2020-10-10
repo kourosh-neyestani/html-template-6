@@ -640,10 +640,24 @@
         });
     };
 
+    /*====== NewTags ======*/
+    AFRA.NewTags = function () {
+        var more = $(".el-new-tags .more-tags");
+
+        more.on("click", function() {
+            var tags = $(this).parent(".el-new-tags");
+            tags.toggleClass("show");
+            $(this).toggleClass("less");
+            $(this).text(function(i, text){
+                return text === "+" ? "-" : "+";
+            });
+        })
+    };
+
     $(window).on("load", function () {});
 
     $(document).ready(function () {
-        AFRA.MultipleClassRooms(), AFRA.Test(), AFRA.MegaMenu(), AFRA.Stepper(), AFRA.Counter(), AFRA.StickyHeader(), AFRA.StickySidebar(), AFRA.Sidenav(), AFRA.SidenavFilter(), AFRA.SidenavSorting(), AFRA.Select2(), AFRA.Accordion(), AFRA.FormSwitch(), AFRA.Calendar(), AFRA.CalendarTabs(), AFRA.CalendarSelect(), AFRA.Popover(), AFRA.UploadAvatar(), AFRA.DatePicker(), AFRA.Modal(), AFRA.ModalTabs(), AFRA.ModalClassrooms();
+        AFRA.MultipleClassRooms(), AFRA.Test(), AFRA.MegaMenu(), AFRA.Stepper(), AFRA.Counter(), AFRA.StickyHeader(), AFRA.StickySidebar(), AFRA.Sidenav(), AFRA.SidenavFilter(), AFRA.SidenavSorting(), AFRA.Select2(), AFRA.Accordion(), AFRA.FormSwitch(), AFRA.Calendar(), AFRA.CalendarTabs(), AFRA.CalendarSelect(), AFRA.Popover(), AFRA.UploadAvatar(), AFRA.DatePicker(), AFRA.Modal(), AFRA.ModalTabs(), AFRA.ModalClassrooms(), AFRA.NewTags();
     });
 })(jQuery);
 

@@ -4321,6 +4321,34 @@ Forms
   background-color: var(--gray);
 }
 
+
+.el-new-tags .el-tags {
+  height: 30px;
+  overflow: hidden;
+  margin-bottom: 9px;
+}
+.el-new-tags .more-tags {
+  width: 24px;
+  height: 24px;
+  color: #fff;
+  display: block;
+  overflow: hidden;
+  line-height: 27px;
+  cursor: pointer;
+  display: block;
+  font-size: 14px;
+  z-index: 9999;
+  position: relative;
+  background: deepskyblue;
+  margin: 3px auto 15px;
+  border-radius: 50%;
+}
+.el-new-tags .more-tags.less {
+  font-size: 18px;
+}
+.el-new-tags.show .el-tags {
+  height: inherit !important;
+}
 /*------------------------------------
     Element: Table
 ------------------------------------*/
