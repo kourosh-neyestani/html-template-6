@@ -315,33 +315,6 @@
         });
     };
 
-    /*====== Modal ======*/
-    AFRA.Modal = function () {
-        var body = $("body");
-        var btnModal = $("button[data-modal-id]");
-        var btnClose = $(".el-modal-overlay .modal-close");
-
-        btnModal.on("click", function (e) {
-            e.preventDefault();
-            var data = $(this).data("modal-id");
-            var overlay = $(".el-modal-overlay[data-modal-id=" + data + "]");
-            var modal = overlay.find(".el-modal");
-            body.addClass("state-menu");
-            modal.addClass("active");
-            overlay.show();
-            overlay.addClass("active");
-        });
-
-        btnClose.on("click", function () {
-            var modal = $(".el-modal");
-            var overlay = $(".el-modal-overlay");
-            body.removeClass("state-menu");
-            modal.removeClass("active");
-            overlay.hide();
-            overlay.removeClass("active");
-        });
-    };
-
     /*====== Select2 ======*/
     AFRA.Select2_v2 = function () {
         function setPrefix(prefix) {
@@ -551,7 +524,6 @@
     $(window).on("load", function () {});
 
     $(document).ready(function () {
-        AFRA.Modal();
         AFRA.Select2_v2();
         AFRA.Stepper_v2();
         AFRA.Calendar_v2();
