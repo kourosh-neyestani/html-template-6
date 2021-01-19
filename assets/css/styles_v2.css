@@ -1,0 +1,960 @@
+
+/*------------------------------------
+    Carousel v2.0
+------------------------------------*/
+
+.afc-carousel {
+    position: relative;
+}
+
+/**
+ * Carousel - Navigation
+ */
+
+.afc-carousel .afc-carousel__prev,
+.afc-carousel .afc-carousel__next {
+    top: 0;
+    z-index: 15;
+    cursor: pointer;
+    font-size: 12px;
+    position: absolute;
+    white-space: nowrap;
+}
+
+.afc-carousel .afc-carousel__prev i,
+.afc-carousel .afc-carousel__next i {
+    top: 1px;
+    font-size: 15px;
+    position: relative;
+}
+
+.afc-carousel .afc-carousel__prev {
+    right: 0;
+    text-align: right;
+}
+
+.afc-carousel .afc-carousel__prev i {
+    margin-left: 6px;
+}
+
+.afc-carousel .afc-carousel__next {
+    left: 0;
+    text-align: left;
+}
+
+.afc-carousel .afc-carousel__next i {
+    margin-right: 6px;
+}
+
+.afc-carousel .afc-carousel__prev.inactive,
+.afc-carousel .afc-carousel__next.inactive {
+    color: #ccc;
+    border-color: #e1e1e1;
+}
+
+.afc-carousel .afc-carousel__prev.disabled,
+.afc-carousel .afc-carousel__next.disabled {
+    cursor: no-drop;
+    opacity: 0.3;
+    user-select: none;
+}
+
+.afc-carousel .afc-carousel__prev.disabled {
+    /* opacity: 0;
+  visibility: hidden; */
+}
+
+/**
+ * Carousel - Wrapper
+ */
+
+.afc-carousel .afc-carousel__wrapper {
+    position: relative;
+}
+
+.afc-carousel .afc-carousel__wrapper .afc-carousel__slide {
+    top: 0;
+    left: -100%;
+    right: 100%;
+    opacity: 0;
+    display: none;
+    position: absolute;
+    visibility: hidden;
+    -webkit-transition: all 270ms;
+    transition: all 270ms;
+}
+
+.afc-carousel .afc-carousel__wrapper .afc-carousel__slide.active {
+    left: 0 !important;
+    right: 0 !important;
+    opacity: 1 !important;
+    display: block !important;
+    position: relative !important;
+    visibility: visible !important;
+}
+
+.afc-carousel .afc-carousel__wrapper .afc-carousel__slide .afc-carousel__slide__title {
+    width: 100%;
+    height: 45px;
+    display: block;
+    text-align: center;
+}
+
+/*------------------------------------
+    Stepper v2.0
+------------------------------------*/
+
+.afc-stepper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+}
+
+.afc-stepper .container {
+    height: 100%;
+    position: relative;
+}
+
+/**
+ * Stepper - Card
+ */
+
+.afc-stepper .el-card {
+    padding: 20px 45px;
+    text-align: right;
+    margin-bottom: 12px;
+    border: 1px solid #eee;
+}
+
+.afc-stepper .el-card.active {
+    border-color: var(--primary);
+    background-color: #fdf4e4;
+    box-shadow: 0 0 1px 0 var(--primary) !important;
+}
+
+.afc-stepper .el-card:not(.active) {
+    cursor: pointer;
+}
+
+.afc-stepper .el-card .afc-stepper__content__price {
+    top: 34px;
+    left: 30px;
+    font-size: 14px;
+    font-weight: 400;
+    position: absolute;
+}
+
+.afc-stepper .el-card .afc-stepper__content__title {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 6px;
+}
+
+.afc-stepper .el-card .afc-stepper__content__subtitle {
+    font-size: 14px;
+    font-weight: 200;
+}
+
+/**
+ * Stepper - Content
+ */
+.afc-stepper .afc-stepper__content {
+    width: 100%;
+    height: calc(100% - 60px);
+    overflow: hidden;
+    overflow-y: auto;
+    position: absolute;
+    padding: 0 3px 30px;
+    padding-bottom: 200px !important;
+}
+
+.afc-stepper .afc-stepper__content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.afc-stepper .afc-stepper__content::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+.afc-stepper .afc-stepper__content::-webkit-scrollbar-thumb {
+    background: #eee;
+}
+
+.afc-stepper .afc-stepper__content .afc-stepper__content__heading {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+/**
+ * Stepper - Wrapper
+ */
+
+.afc-stepper .afc-stepper__wrapper {
+    height: 100%;
+    position: relative;
+}
+
+.afc-stepper .afc-stepper__wrapper .afc-stepper__step:not(.active) {
+    display: none;
+}
+
+/**
+ * Stepper - Footer
+ */
+
+.afc-stepper .afc-stepper__footer {
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 60px;
+    bottom: 0;
+    overflow: hidden;
+    text-align: left;
+    padding: 7px 15px 7px 7px;
+    position: absolute;
+    background-color: #fff;
+}
+
+/**
+ * Stepper - Tracker
+ */
+
+.afc-stepper .afc-stepper__tracker {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    position: relative;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.afc-stepper .afc-stepper__tracker:after {
+    right: 0;
+    top: 15px;
+    width: 100%;
+    height: 2px;
+    content: "";
+    opacity: 0.3;
+    position: absolute;
+    background-color: #cbd5e0;
+}
+
+.afc-stepper .afc-stepper__tracker > div {
+    width: 32px;
+    cursor: pointer;
+    z-index: 12;
+    position: relative;
+}
+
+.afc-stepper .afc-stepper__tracker .afc-stepper__tracker__number {
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 32px;
+    border-radius: 50%;
+    background: #cbd5e0;
+    margin-bottom: 9px;
+}
+
+.afc-stepper .afc-stepper__tracker .afc-stepper__tracker__heading {
+    width: max-content;
+    color: #cbd5e0;
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.afc-stepper .afc-stepper__tracker .active .afc-stepper__tracker__number {
+    color: #fff;
+    background-color: #3182ce;
+}
+
+.afc-stepper .afc-stepper__tracker .active .afc-stepper__tracker__heading {
+    color: #3182ce;
+}
+
+[data-step-to="2"] .afc-stepper__tracker__heading {
+    left: 14px;
+    position: relative;
+}
+
+[data-step-to="3"] .afc-stepper__tracker__heading {
+    left: 25px;
+    position: relative;
+}
+
+/*------------------------------------
+    Selected Times
+------------------------------------*/
+
+/**
+ * Selected Times: Teacher
+ */
+.afc-selected-times__teacher {
+    right: 10px;
+    bottom: 0;
+    height: 60px;
+    z-index: 0;
+    position: absolute;
+    padding-top: 7px;
+}
+
+/**
+ * Selected Times: List Items
+ */
+
+.afc-selected-times__items {
+    left: 15px;
+    right: 15px;
+    bottom: 60px;
+    height: 100px;
+    position: absolute;
+    padding-top: 7px;
+    background-color: #fff;
+}
+
+.afc-selected-times ul {
+    list-style: none;
+    padding: 6px 0 0;
+    margin: 0;
+}
+
+.afc-selected-times ul li {
+    cursor: pointer;
+    font-size: 10px;
+    display: inline-block;
+    position: relative;
+    padding: 6px 15px;
+    margin-left: 3px;
+    margin-bottom: 6px;
+    border-radius: 60px;
+    background-color: #eee;
+}
+
+.afc-selected-times ul li .afc-selected-times__close {
+    top: 1px;
+    position: relative;
+    margin-left: 9px;
+}
+
+.afc-selected-times ul li .afc-selected-times__value {
+    opacity: 0.6;
+}
+
+.afc-selected-times ul li:hover {
+    color: red;
+}
+
+.afc-selected-times ul li:hover .afc-selected-times__value,
+.afc-selected-times ul li:hover .afc-selected-times__close {
+    opacity: 1;
+}
+
+.afc-selected-times .afc-selected-times__title {
+    display: none;
+    font-size: 12px;
+    font-weight: 700;
+    padding-bottom: 9px;
+}
+
+.afc-selected-times .afc-selected-times__with {
+    height: 48px;
+    font-size: 12px;
+    position: relative;
+    padding-right: 75px;
+    margin-bottom: 6px;
+}
+
+.afc-selected-times .afc-selected-times__with img {
+    top: 0;
+    right: 10px;
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    border-radius: 3px;
+    box-shadow: 0 3px 6px 0 rgba(140, 152, 164, 0.25) !important;
+}
+
+.afc-selected-times .afc-selected-times__with .afc-selected-times__with__title {
+    display: block;
+    font-weight: 700;
+    padding-top: 3px;
+    margin-bottom: 6px;
+}
+
+.afc-selected-times .afc-selected-times__with .afc-selected-times__with__subtitle {
+    color: #999;
+}
+
+@media (max-width: 992px) {
+    .afc-stepper .container {
+        width: 96%;
+        max-width: 100%;
+        margin: auto;
+    }
+
+    .afc-stepper .afc-stepper__footer {
+        height: 60px;
+        position: fixed;
+        padding: 0 15px 15px;
+    }
+
+    .afc-selected-times {
+        height: 60px;
+    }
+
+    .afc-selected-times .afc-selected-times__items {
+        display: none;
+    }
+
+    .afc-selected-times .afc-selected-times__with {
+        right: 0;
+        height: 60px;
+        bottom: 0;
+        position: fixed;
+        padding-right: 80px;
+    }
+
+    .afc-selected-times .afc-selected-times__with img {
+        top: 6px;
+        margin-right: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .afc-selected-times .afc-selected-times__title {
+        display: none;
+    }
+
+    .afc-stepper .container {
+        width: 100% !important;
+        padding: 0;
+    }
+
+    .afc-stepper p {
+        font-size: 12px;
+    }
+
+    .afc-stepper .el-card {
+        padding: 15px 20px;
+    }
+
+    .afc-stepper .afc-stepper__footer {
+        height: 60px;
+        z-index: 15;
+        position: fixed;
+        text-align: center;
+        padding: 0 15px 15px;
+        background-color: #fff;
+    }
+
+    .button[data-step-to="2"] {
+        width: 100% !important;
+        font-size: 12px !important;
+    }
+
+    .button[data-step-to="3"] {
+        width: 47% !important;
+        font-size: 12px !important;
+        float: left;
+        margin-right: 3px;
+    }
+
+    [data-step-id="3"] .button {
+        width: 100%;
+    }
+
+    .afc-selected-times {
+        height: 0;
+    }
+
+    .afc-selected-times .afc-selected-times__with {
+        right: 0;
+        height: 50px;
+        bottom: 60px;
+        position: fixed;
+        padding-top: 0;
+        padding-right: 60px;
+    }
+
+    .afc-selected-times .afc-selected-times__with img {
+        top: 6px;
+        width: 33px;
+        height: 33px;
+        margin-right: 5px;
+    }
+
+    .afc-stepper .afc-stepper__tracker {
+        top: 0;
+        height: 66px;
+        padding-top: 0;
+        overflow: hidden;
+        margin-bottom: 0;
+    }
+
+    .afc-stepper .afc-stepper__tracker:after {
+        top: 15px;
+    }
+
+    .afc-stepper .afc-stepper__content {
+        padding-bottom: 120px;
+    }
+
+    .afc-stepper .el-card .afc-stepper__content__price {
+        top: 25px;
+        left: 25px;
+        font-size: 12px;
+    }
+
+    .afc-stepper .el-card .afc-stepper__content__title {
+        font-size: 11px;
+    }
+
+    .afc-stepper .el-card .afc-stepper__content__subtitle {
+        font-size: 10px;
+    }
+
+    .afc-stepper .afc-stepper__tracker .afc-stepper__tracker__heading {
+        font-size: 10px;
+    }
+
+    .afc-stepper .afc-stepper__content .afc-stepper__content__heading {
+        font-size: 12px;
+        text-align: center !important;
+        margin-bottom: 10px;
+    }
+
+    .afc-stepper .afc-stepper__content {
+        height: calc(100% - 210px);
+    }
+
+    /* Calendar */
+    .afc-calendar-week__day {
+        padding: 0 1px;
+    }
+
+    .afc-calendar-week__date span {
+        white-space: nowrap;
+        font-size: 10px !important;
+    }
+
+    .afc-carousel__title {
+        font-size: 11px;
+    }
+
+    .afc-stepper .afc-stepper__content::-webkit-scrollbar {
+        width: 1px;
+    }
+
+    .afc-calendar-week__day .afc-calendar-week__hover {
+        width: 100px;
+    }
+
+    .afc-calendar-week__day .afc-calendar-week__hover span {
+        font-size: 9px !important;
+    }
+
+    .afc-carousel .afc-carousel__prev,
+    .afc-carousel .afc-carousel__next {
+        font-size: 10px;
+    }
+
+    .afc-calendar-week__day .afc-calendar-week__hover {
+        right: 100%;
+    }
+
+    .afc-calendar-week__day:last-child .afc-calendar-week__hover,
+    .afc-calendar-week__day:nth-child(6) .afc-calendar-week__hover {
+        left: 100%;
+        right: inherit;
+    }
+}
+
+.afc-selected-times__mobile {
+    left: 10px;
+    bottom: 60px;
+    height: 60px;
+    z-index: 999;
+    color: #3182ce;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+    position: absolute;
+    padding-top: 7px;
+}
+
+.afc-selected-times__mobile .afc-selected-times__mobile__button:not(.active) {
+    display: none;
+}
+
+.afc-selected-times__mobile .afc-selected-times__mobile__button span {
+    padding-top: 2px;
+    display: block;
+}
+
+.afc-selected-times__mobile__modal {
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    position: fixed;
+    opacity: 0;
+    visibility: hidden;
+    margin: auto;
+    padding: 15px;
+    z-index: 9999999999;
+}
+
+.afc-selected-times__mobile__modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.afc-selected-times__mobile__modal:before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    content: "";
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.afc-selected-times__mobile__modal > div {
+    z-index: 1;
+    padding: 20px;
+    position: relative;
+    border-radius: 12px;
+    background-color: #fff;
+    border: 3px solid orange;
+    box-shadow: 0 3px 6px 0 rgba(140, 152, 164, 0.95) !important;
+}
+
+.afc-selected-times__mobile__modal > div > span {
+    color: red;
+    float: left;
+    font-size: 12px;
+}
+
+.afc-selected-times__mobile__modal > div > p {
+    font-size: 12px;
+    display: inline-block;
+}
+
+.afc-selected-times__mobile__modal__list {
+    height: 270px;
+    overflow-y: auto;
+}
+
+.afc-selected-times__mobile__modal__list li {
+    cursor: pointer;
+    font-size: 10px;
+    display: inline-block;
+    position: relative;
+    padding: 6px 15px;
+    margin-left: 3px;
+    margin-bottom: 6px;
+    border-radius: 60px;
+    background-color: #eee;
+}
+
+.afc-selected-times__mobile__modal__list li .afc-selected-times__close {
+    top: 1px;
+    position: relative;
+    margin-left: 9px;
+}
+
+.afc-selected-times__mobile__modal__list li .afc-selected-times__value {
+    opacity: 0.6;
+}
+
+.afc-selected-times ul li:hover {
+    color: red;
+}
+
+.afc-selected-times__mobile__modal__list li:hover .afc-selected-times__value,
+.afc-selected-times__mobile__modal__list li:hover .afc-selected-times__close {
+    opacity: 1;
+}
+
+@media (min-width: 768px) {
+    .afc-selected-times__mobile {
+        display: none;
+    }
+}
+
+/*------------------------------------
+    Auth
+------------------------------------*/
+
+.afc-auth {
+    width: 480px;
+    max-width: 100%;
+    position: relative;
+    margin: 0 auto;
+}
+
+/**
+ * Auth - Panel
+ */
+.afc-auth .afc-auth__panel {
+    display: none;
+}
+
+.afc-auth .afc-auth__panel.active {
+    display: block;
+}
+
+.afc-auth .afc-auth__panel .afc-auth__panel__inner {
+    padding: 20px 25px;
+    border-radius: 6px;
+    position: relative;
+    border: 1px solid #eee;
+    background-color: #fff;
+}
+
+.afc-auth .afc-auth__panel .afc-auth__panel__info {
+    text-align: center;
+}
+
+.afc-auth .afc-auth__panel .afc-auth__panel__info p {
+    font-size: 12px;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.afc-auth .afc-auth__panel .afc-auth__panel__info p a {
+    color: #3f9eff;
+    margin: 0 3px;
+}
+
+/**
+ * Auth - Head
+ */
+.afc-auth .afc-auth__head {
+    height: 50px;
+    position: relative;
+}
+
+.afc-auth .afc-auth__head .afc-form__head__title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.afc-auth .afc-auth__head .afc-form__head__close {
+    top: 0;
+    left: 0;
+    width: 40px;
+    line-height: 1;
+    text-align: left;
+    cursor: pointer;
+    display: block;
+    font-size: 18px;
+    border: 0;
+    outline: 0;
+    position: absolute;
+    padding: 6px 0 15px;
+}
+
+/**
+ * Auth - body
+ */
+.afc-auth .afc-auth__body {
+    position: relative;
+}
+
+/**
+ * Auth - Buttons
+*/
+
+.afc-auth .button-custom {
+    color: #3f9eff;
+    border: 1px solid #3f9eff;
+}
+
+.afc-auth .button-custom:hover,
+.afc-auth .button-custom.active {
+    color: #fff;
+    background-color: #3f9eff;
+}
+
+/*------------------------------------
+    Form v2
+------------------------------------*/
+
+.afc-form {
+    overflow: hidden;
+    position: relative;
+}
+
+.afc-form .afc-form__item {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.afc-form .afc-form__item .afc-form__item__input {
+    width: 100%;
+    height: 58px;
+    display: block;
+    position: relative;
+    font-size: 14px;
+    padding-top: 6px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+.afc-form .afc-form__item .afc-form__item__label {
+    top: 19px;
+    right: 25px;
+    color: #999;
+    font-size: 15px;
+    position: absolute;
+    display: inline-block;
+    background: #fff;
+}
+
+.afc-form .afc-form__item .afc-form__item__subtitle {
+    width: 100%;
+    height: 30px;
+    color: #666;
+    display: block;
+    font-size: 12px;
+    padding-top: 6px;
+}
+
+.afc-form .afc-form__item--mobile .afc-form__item__input {
+    direction: ltr;
+    text-align: left;
+}
+
+.afc-form .afc-form__item--mobile .afc-form__item--mobile__prefix {
+    top: 8px;
+    left: 0;
+    width: 120px;
+    z-index: 12;
+    font-size: 12px;
+    line-height: 46px;
+    overflow: hidden;
+    position: absolute;
+}
+
+.afc-form .afc-form__item--mobile .afc-form__item--mobile__prefix .select2-container--default .select2-selection--single .select2-selection__rendered,
+.afc-form .afc-form__item--mobile .afc-form__item--mobile__prefix .select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: #000 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+}
+
+.afc-form .afc-form__item--mobile .afc-form__item--mobile__prefix .select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 5px !important;
+    left: 25px !important;
+    right: inherit !important;
+    width: 20px;
+    height: 26px !important;
+    position: absolute !important;
+}
+
+.afc-flag {
+    text-align: left;
+    position: relative;
+
+    padding-left: 40px;
+}
+
+.afc-flag img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.select2-results__options .afc-flag {
+    padding-top: 6px;
+}
+
+.select2-results__options .afc-flag img {
+    top: 4px;
+    left: 9px;
+    position: absolute;
+}
+
+.select2-selection__rendered .afc-flag img {
+    top: -4px;
+    display: inline;
+    position: relative;
+    margin: inherit;
+    margin-right: 9px;
+}
+
+/**
+ * Try Again
+*/
+.afc-try-again {
+    text-align: center;
+}
+
+.afc-try-again .afc-try-again__timer {
+    display: block;
+}
+
+.afc-try-again .afc-try-again__button {
+    width: 100%;
+    height: 51px;
+    line-height: 51px;
+    display: none;
+    text-align: center;
+    font-size: 12px;
+    color: var(--primary);
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.afc-try-again.active .afc-try-again__timer {
+    display: none;
+}
+
+.afc-try-again.active .afc-try-again__button {
+    display: block;
+}
+
+.afc-auth__panel:not(.active) {
+    display: none;
+}
+
+.afc-btn-edit-mobile-number {
+    text-align: center;
+}
+
+.afc-btn-edit-mobile-number p {
+    color: #3f9eff !important;
+    text-align: center;
+    border-bottom: 1px dashed #3f9eff !important;
+}
+
+@media (max-width: 992px) {
+    .afc-form__head__title {
+        font-size: 12px !important;
+    }
+    .afc-auth .afc-auth__panel .afc-auth__panel__inner {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .afc-form .afc-form__item .afc-form__item__label {
+        top: -8px;
+        font-size: 12px;
+    }
+}
