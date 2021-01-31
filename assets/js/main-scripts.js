@@ -1061,6 +1061,8 @@ var AFRA = {};
                 return;
             }
 
+            $(this).addClass('loading');
+
             try_again.removeClass("active");
             myTimer();
 
@@ -1196,6 +1198,8 @@ var AFRA = {};
             clearInterval(timer);
 
             user_mobile_number = null;
+
+            $('.afc-btn-submit-mobile').removeClass('loading');
 
             $("[data-auth-panel]").removeClass("active");
             $("[data-auth-panel='2']").addClass("active");
