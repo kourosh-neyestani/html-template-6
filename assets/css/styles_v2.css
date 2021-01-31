@@ -1,265 +1,5 @@
 
 /*------------------------------------
-    Calendar v2.0
-------------------------------------*/
-
-.afc-calendar-week__day ul {
-    list-style: none;
-    text-align: center;
-    padding: 0;
-    margin: 0;
-}
-
-.afc-calendar-week__day ul li {
-    height: 32px;
-    color: #3f9eff;
-    cursor: pointer;
-    display: block;
-    max-width: 120px;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 32px;
-    position: relative;
-    text-align: center;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 6px;
-    border: 2px solid transparent;
-}
-
-.afc-calendar-week__day ul li:not(.selected):not(.booked):not(.disable):hover {
-    border-color: #3f9eff;
-}
-
-.afc-calendar-week__day .booked {
-    color: #ccc;
-    cursor: no-drop;
-}
-
-.afc-calendar-week__day .selected {
-    color: #fff;
-    border-color: #ff7b18;
-    background-color: orangered;
-}
-
-.afc-calendar-week__day .afc-calendar-week__hover {
-    top: -4px;
-    right: 80%;
-    width: 120px;
-    color: #eee;
-    z-index: 1;
-    position: absolute;
-    padding-top: 12px;
-    border-radius: 6px;
-    opacity: 0;
-    visibility: hidden;
-    background-color: #717f94;
-    box-shadow: 0 1em 2em -0.5em rgba(0, 0, 0, 0.35);
-    transition: all 0.2s cubic-bezier(0.35, 0.9, 0.4, 0.9);
-}
-
-.afc-calendar-week__day .afc-calendar-week__hover span {
-    display: block;
-    overflow: hidden;
-    white-space: nowrap;
-    line-height: 1;
-    margin-bottom: 12px;
-}
-
-.afc-calendar-week__day .afc-calendar-week__hover:before,
-.afc-calendar-week__day .afc-calendar-week__hover:after {
-    top: 14px;
-    right: -4px;
-    width: 8px;
-    height: 8px;
-    content: "";
-    position: absolute;
-    background-color: #717f94;
-    transform: rotate(45deg);
-}
-
-.afc-calendar-week__day .afc-calendar-week__hover:after {
-    right: -3px;
-    background-color: #717f94;
-}
-
-.afc-calendar-week__day .afc-calendar-week__hover span:first-child {
-    font-size: 11px;
-}
-
-.afc-calendar-week__day:last-child .afc-calendar-week__hover:before,
-.afc-calendar-week__day:nth-child(6) .afc-calendar-week__hover:before {
-    left: -4px;
-    right: inherit;
-}
-
-.afc-calendar-week__day:last-child .afc-calendar-week__hover:after,
-.afc-calendar-week__day:nth-child(6) .afc-calendar-week__hover:after {
-    left: -3px;
-    right: inherit;
-}
-
-.afc-calendar-week__day li:hover .afc-calendar-week__hover {
-    opacity: 1;
-    visibility: visible;
-}
-
-.afc-calendar-week__day:last-child .afc-calendar-week__hover,
-.afc-calendar-week__day:nth-child(6) .afc-calendar-week__hover {
-    left: 80%;
-    right: inherit;
-}
-
-/**
- * Calendar
- */
-.afc-calendar {
-    overflow: hidden;
-    position: relative;
-}
-
-.afc-calendar-body {
-    min-height: 60px;
-    overflow: hidden;
-    position: relative;
-}
-
-/**
- *
- */
-.afc-calendar-week {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: -6px;
-    margin-right: -6px;
-    padding-bottom: 60px;
-    justify-content: center;
-}
-
-.afc-calendar-week__day {
-    flex: 0 0 14.285714286%;
-    max-width: 14.285714286%;
-    font-size: 12px;
-    text-align: center;
-    padding: 0 6px;
-}
-
-.afc-calendar-week__date {
-    padding: 15px 0 25px;
-    border-top: 4px solid orange;
-}
-
-.afc-calendar-week__date span {
-    display: block;
-    font-size: 0.96em;
-    font-weight: 700;
-    margin-bottom: 6px;
-}
-
-.afc-calendar-week__date span:last-child {
-    font-size: 14px;
-    font-weight: 700;
-}
-
-/**
- * Other
- */
-.button {
-    z-index: 3;
-    position: relative;
-    display: inline-block;
-}
-
-.button span {
-    display: block;
-}
-
-.button-xx {
-    height: 58px;
-    border-radius: 6px;
-}
-
-.button.disable {
-    color: #eee !important;
-    cursor: not-allowed !important;
-    background-color: #888 !important;
-}
-
-.button-default {
-    background-color: #eee;
-}
-
-/**
- * Modal
- */
-.el-modal.modal-x2 {
-    width: 1200px;
-}
-
-.el-modal.modal-x2 .modal-body {
-    padding: 30px 30px 0;
-}
-
-.el-modal.modal-x2 .modal-body > div {
-    height: calc(100vh - 160px);
-    position: relative;
-}
-
-@media (max-width: 1200px) {
-    .el-modal.modal-x2 {
-        width: 100% !important;
-        max-width: 100% !important;
-        border-radius: 0 !important;
-    }
-
-    .el-modal.modal-x2 .modal-body {
-        padding-top: 15px;
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    .el-modal.modal-x2 .modal-body > div {
-        /* TODO: Check this line. :/ uhhh... */
-        height: calc(100vh - 45px) !important;
-    }
-
-    [data-modal-id="modal-afc-stepper-calendar"] .modal-wrapper {
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        width: 100% !important;
-        transform: translate(0, 0) !important;
-    }
-}
-
-@media (max-width: 768px) {
-    .el-modal.modal-x2 .modal-head {
-        height: 40px;
-        border: 0;
-    }
-
-    .el-modal.modal-x2 .modal-head .modal-title {
-        font-size: 12px;
-        line-height: 40px;
-    }
-
-    .el-modal.modal-x2 .modal-head .modal-close {
-        width: 54px;
-        height: 40px;
-        font-size: 18px;
-        line-height: 40px;
-    }
-
-    .el-modal.modal-x2 .modal-body {
-        padding-top: 6px;
-    }
-}
-
-/*------------------------------------
     Carousel v2.0
 ------------------------------------*/
 
@@ -551,11 +291,11 @@
 
 .afc-stepper .afc-stepper__tracker .active .afc-stepper__tracker__number {
     color: #fff;
-    background-color: #3182ce;
+    background-color: var(--secondary);
 }
 
 .afc-stepper .afc-stepper__tracker .active .afc-stepper__tracker__heading {
-    color: #3182ce;
+    color: var(--secondary);
 }
 
 [data-step-to="2"] .afc-stepper__tracker__heading {
@@ -867,7 +607,7 @@
     bottom: 60px;
     height: 60px;
     z-index: 999;
-    color: #3182ce;
+    color: var(--secondary);
     cursor: pointer;
     font-size: 12px;
     font-weight: 700;
@@ -1016,7 +756,7 @@
 }
 
 .afc-auth .afc-auth__panel .afc-auth__panel__info p a {
-    color: #3f9eff;
+    color: var(--secondary);
     margin: 0 3px;
 }
 
@@ -1060,14 +800,14 @@
 */
 
 .afc-auth .button-custom {
-    color: #3f9eff;
-    border: 1px solid #3f9eff;
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
 }
 
 .afc-auth .button-custom:hover,
 .afc-auth .button-custom.active {
     color: #fff;
-    background-color: #3f9eff;
+    background-color: var(--secondary);
 }
 
 /*------------------------------------
@@ -1219,9 +959,9 @@
 }
 
 .afc-btn-edit-mobile-number p {
-    color: #3f9eff !important;
+    color: var(--secondary) !important;
     text-align: center;
-    border-bottom: 1px dashed #3f9eff !important;
+    border-bottom: 1px dashed var(--secondary) !important;
 }
 
 @media (max-width: 992px) {

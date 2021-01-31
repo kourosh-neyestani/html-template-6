@@ -9949,7 +9949,7 @@ testimonial
 
 .afc-calendar-week__day ul li {
     height: 32px;
-    color: #3f9eff;
+    color: var(--secondary);
     cursor: pointer;
     display: block;
     max-width: 120px;
@@ -9969,7 +9969,7 @@ testimonial
 }
 
 .afc-calendar-week__day ul li:not(.selected):not(.booked):not(.disable):hover {
-    border-color: #3f9eff;
+    border-color: var(--secondary);
 }
 
 .afc-calendar-week__day .booked {
@@ -10488,11 +10488,11 @@ testimonial
 
 .afc-stepper .afc-stepper__tracker .active .afc-stepper__tracker__number {
     color: #fff;
-    background-color: #3182ce;
+    background-color: var(--secondary);
 }
 
 .afc-stepper .afc-stepper__tracker .active .afc-stepper__tracker__heading {
-    color: #3182ce;
+    color: var(--secondary);
 }
 
 [data-step-to="2"] .afc-stepper__tracker__heading {
@@ -10804,7 +10804,7 @@ testimonial
     bottom: 60px;
     height: 60px;
     z-index: 999;
-    color: #3182ce;
+    color: var(--secondary);
     cursor: pointer;
     font-size: 12px;
     font-weight: 700;
@@ -10953,7 +10953,7 @@ testimonial
 }
 
 .afc-auth .afc-auth__panel .afc-auth__panel__info p a {
-    color: #3f9eff;
+    color: var(--secondary);
     margin: 0 3px;
 }
 
@@ -10997,14 +10997,14 @@ testimonial
 */
 
 .afc-auth .button-custom {
-    color: #3f9eff;
-    border: 1px solid #3f9eff;
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
 }
 
 .afc-auth .button-custom:hover,
 .afc-auth .button-custom.active {
     color: #fff;
-    background-color: #3f9eff;
+    background-color: var(--secondary);
 }
 
 /*------------------------------------
@@ -11156,9 +11156,9 @@ testimonial
 }
 
 .afc-btn-edit-mobile-number p {
-    color: #3f9eff !important;
+    color: var(--secondary) !important;
     text-align: center;
-    border-bottom: 1px dashed #3f9eff !important;
+    border-bottom: 1px dashed var(--secondary) !important;
 }
 
 @media (max-width: 992px) {
