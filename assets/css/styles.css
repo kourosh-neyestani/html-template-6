@@ -230,14 +230,19 @@ body {
     width: 100%;
     color: var(--base-1);
     margin: 0;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     background-color: var(--base-0);
 }
 
 body.state-menu {
     width: 100% !important;
     height: 100% !important;
-    overflow: hidden !important;
+    /* 
+    
+    TODO: needs to check. removed this line because of (position: sticky) bugs.
+    overflow: hidden !important; 
+    
+    */
     height: 100vh !important;
 }
 
@@ -10055,13 +10060,12 @@ testimonial
  * Calendar
  */
 .afc-calendar {
-    overflow: hidden;
+    z-index: 1;
     position: relative;
 }
 
 .afc-calendar-body {
     min-height: 60px;
-    overflow: hidden;
     position: relative;
 }
 
@@ -10142,7 +10146,8 @@ testimonial
 }
 
 .el-modal.modal-x2 .modal-body > div {
-    height: calc(100vh - 160px);
+    /* height: calc(100vh - 160px); */
+    height: calc(100vh - 220px);
     position: relative;
 }
 
@@ -10158,12 +10163,27 @@ testimonial
         padding-left: 15px;
         padding-right: 15px;
     }
-
-    .el-modal.modal-x2 .modal-body > div {
-        /* TODO: Check this line. :/ uhhh... */
-        height: calc(100vh - 45px) !important;
+    [data-modal-id="modal-afc-stepper-calendar"] .modal-head {
+        top: 0;
+        left: 0;
+        width: 100%;
+        position: absolute;
+        border: 0 !important;
     }
-
+    [data-modal-id="modal-afc-stepper-calendar"] .modal-head .modal-title {
+        font-size: 10px;
+        line-height: 30px;
+        display: none;
+    }
+    [data-modal-id="modal-afc-stepper-calendar"] .modal-head .modal-close  {
+        color: red;
+        height: 30px;
+        left: 3px;
+        line-height: 30px;
+    }
+    [data-modal-id="modal-afc-stepper-calendar"] .modal-body > div {
+        height: 100vh !important;
+    }
     [data-modal-id="modal-afc-stepper-calendar"] .modal-wrapper {
         top: 0 !important;
         left: 0 !important;
@@ -10305,14 +10325,20 @@ testimonial
 
 .afc-stepper {
     width: 100%;
-    height: 100%;
-    overflow: hidden;
+    height: 100vh;
+    overflow: initial !important;
     position: absolute;
 }
 
-.afc-stepper .container {
+.afc-stepper > .container {
     height: 100%;
     position: relative;
+    overflow: initial !important;
+}
+
+.afc-stepper .afc-selected-times {
+    /* TODO: needs to recheck/remove selected-items from main-scripts.js file. */
+    display: none !important;
 }
 
 /**
@@ -10412,17 +10438,22 @@ testimonial
  * Stepper - Footer
  */
 
-.afc-stepper .afc-stepper__footer {
+.afc-stepper__footer {
     left: 0;
     right: 0;
-    width: 100%;
-    height: 60px;
     bottom: 0;
-    overflow: hidden;
-    text-align: left;
-    padding: 7px 15px 7px 7px;
+    width: 100%;
+    z-index: 3;
     position: absolute;
-    background-color: #fff;
+    padding-bottom: 9px;
+}
+.afc-stepper__footer [data-chain-id] {
+    left: 0;
+    bottom: 9px;
+    position: absolute;
+}
+.afc-stepper__footer [data-chain-id]:not(.active) {
+    display: none;
 }
 
 /**
@@ -10496,7 +10527,7 @@ testimonial
 }
 
 [data-step-to="2"] .afc-stepper__tracker__heading {
-    left: 14px;
+    left: 21px;
     position: relative;
 }
 
@@ -10510,32 +10541,22 @@ testimonial
 ------------------------------------*/
 
 /**
- * Selected Times: Teacher
+ * Stepper - Selected Items
  */
-.afc-selected-times__teacher {
-    right: 10px;
-    bottom: 0;
-    height: 60px;
-    z-index: 0;
-    position: absolute;
-    padding-top: 7px;
-}
 
+ .afc-stepper .afc-selected-times {
+     right: 0;
+     bottom: 120px;
+     width: 100%;
+     height: 100px;
+    position: absolute;
+    background-color: #fff;
+}
 /**
  * Selected Times: List Items
  */
 
-.afc-selected-times__items {
-    left: 15px;
-    right: 15px;
-    bottom: 60px;
-    height: 100px;
-    position: absolute;
-    padding-top: 7px;
-    background-color: #fff;
-}
-
-.afc-selected-times ul {
+ .afc-selected-times ul {
     list-style: none;
     padding: 6px 0 0;
     margin: 0;
@@ -10571,7 +10592,9 @@ testimonial
 .afc-selected-times ul li:hover .afc-selected-times__close {
     opacity: 1;
 }
-
+/*
+ * Selected: Title
+*/
 .afc-selected-times .afc-selected-times__title {
     display: none;
     font-size: 12px;
@@ -10583,13 +10606,13 @@ testimonial
     height: 48px;
     font-size: 12px;
     position: relative;
-    padding-right: 75px;
+    padding-right: 63px;
     margin-bottom: 6px;
 }
 
 .afc-selected-times .afc-selected-times__with img {
     top: 0;
-    right: 10px;
+    right: 0;
     width: 48px;
     height: 48px;
     position: absolute;
@@ -10606,202 +10629,35 @@ testimonial
 
 .afc-selected-times .afc-selected-times__with .afc-selected-times__with__subtitle {
     color: #999;
+    text-align: right;
 }
 
-@media (max-width: 992px) {
-    .afc-stepper .container {
-        width: 96%;
-        max-width: 100%;
-        margin: auto;
-    }
-
-    .afc-stepper .afc-stepper__footer {
-        height: 90px;
-        position: fixed;
-        padding: 0 15px 15px;
-    }
-
-    .afc-selected-times {
-        height: 60px;
-    }
-
-    .afc-selected-times .afc-selected-times__items {
-        display: none;
-    }
-
-    .afc-selected-times .afc-selected-times__with {
-        right: 0;
-        height: 85px;
-        bottom: 0;
-        position: fixed;
-        padding-right: 80px;
-    }
-
-    .afc-selected-times .afc-selected-times__with img {
-        top: 6px;
-        margin-right: 5px;
-    }
+/* 
+ * Selected: Items
+*/
+.afc-selected-times__items {
+    left: 15px;
+    right: 15px;
+    bottom: 50px;
+    position: absolute;
+    text-align: right;
 }
-
-@media (max-width: 768px) {
-    .afc-selected-times .afc-selected-times__title {
-        display: none;
-    }
-
-    .afc-selected-times__mobile {
-        bottom: 100px !important;
-    }
-    .afc-stepper .container {
-        width: 100% !important;
-        padding: 0;
-    }
-
-    .afc-stepper p {
-        font-size: 12px;
-    }
-
-    .afc-stepper .el-card {
-        padding: 15px 20px;
-    }
-
-    .afc-stepper .afc-stepper__footer {
-        height: 100px;
-        z-index: 15;
-        position: fixed;
-        text-align: center;
-        padding: 0 15px 15px;
-        background-color: #fff;
-    }
-
-    .button[data-step-to="2"] {
-        width: 100% !important;
-        font-size: 12px !important;
-    }
-
-    .button[data-step-to="3"] {
-        width: 47% !important;
-        font-size: 12px !important;
-        float: left;
-        margin-right: 3px;
-    }
-
-    [data-step-id="3"] .button {
-        width: 100%;
-    }
-
-    .afc-selected-times {
-        height: 0;
-    }
-
-    .afc-selected-times .afc-selected-times__with {
-        right: 0;
-        height: 50px;
-        bottom: 100px;
-        position: fixed;
-        padding-top: 0;
-        padding-right: 60px;
-    }
-
-    .afc-selected-times .afc-selected-times__with img {
-        top: 6px;
-        width: 33px;
-        height: 33px;
-        margin-right: 5px;
-    }
-
-    .afc-stepper .afc-stepper__tracker {
-        top: 0;
-        height: 66px;
-        padding-top: 0;
-        overflow: hidden;
-        margin-bottom: 0;
-    }
-
-    .afc-stepper .afc-stepper__tracker:after {
-        top: 15px;
-    }
-
-    .afc-stepper .afc-stepper__content {
-        padding-bottom: 120px;
-    }
-
-    .afc-stepper .el-card {
-        margin-bottom: 6px;
-    }
-
-    .afc-stepper .el-card .afc-stepper__content__price {
-        top: 15px;
-        left: 20px;
-        font-size: 12px;
-    }
-
-    .afc-stepper .el-card .afc-stepper__content__title {
-        font-size: 11px;
-    }
-
-    .afc-stepper .el-card .afc-stepper__content__subtitle {
-        font-size: 10px;
-    }
-
-    .afc-stepper .afc-stepper__tracker .afc-stepper__tracker__heading {
-        font-size: 10px;
-    }
-
-    .afc-stepper .afc-stepper__content .afc-stepper__content__heading {
-        font-size: 12px;
-        text-align: center !important;
-        margin-bottom: 10px;
-    }
-
-    .afc-stepper .afc-stepper__content {
-        height: calc(100% - 220px);
-    }
-
-    /* Calendar */
-    .afc-calendar-week__day {
-        padding: 0 1px;
-    }
-
-    .afc-calendar-week__date span {
-        white-space: nowrap;
-        font-size: 10px !important;
-    }
-
-    .afc-carousel__title {
-        font-size: 11px;
-    }
-
-    .afc-stepper .afc-stepper__content::-webkit-scrollbar {
-        width: 1px;
-    }
-
-    .afc-calendar-week__day .afc-calendar-week__hover {
-        width: 100px;
-    }
-
-    .afc-calendar-week__day .afc-calendar-week__hover span {
-        font-size: 9px !important;
-    }
-
-    .afc-carousel .afc-carousel__prev,
-    .afc-carousel .afc-carousel__next {
-        font-size: 10px;
-    }
-
-    .afc-calendar-week__day .afc-calendar-week__hover {
-        right: 100%;
-    }
-
-    .afc-calendar-week__day:last-child .afc-calendar-week__hover,
-    .afc-calendar-week__day:nth-child(6) .afc-calendar-week__hover {
-        left: 100%;
-        right: inherit;
-    }
+/* 
+ * Selected: Teacher
+*/
+.afc-selected-times__teacher {
+    right: 0;
+    bottom: 0;
+    height: 48px;
+    position: absolute;
+    display: inline-block;
 }
-
+/* 
+ * Selected: Mobile
+*/
 .afc-selected-times__mobile {
-    left: 10px;
-    bottom: 60px;
+    left: 0;
+    bottom: 40px;
     height: 60px;
     z-index: 999;
     color: var(--secondary);
@@ -10809,7 +10665,6 @@ testimonial
     font-size: 12px;
     font-weight: 700;
     position: absolute;
-    padding-top: 7px;
 }
 
 .afc-selected-times__mobile .afc-selected-times__mobile__button:not(.active) {
@@ -10897,18 +10752,91 @@ testimonial
     opacity: 0.6;
 }
 
-.afc-selected-times ul li:hover {
-    color: red;
-}
-
 .afc-selected-times__mobile__modal__list li:hover .afc-selected-times__value,
 .afc-selected-times__mobile__modal__list li:hover .afc-selected-times__close {
     opacity: 1;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 1200px) {
+    .afc-stepper__footer {
+        bottom: 15px;
+        position: sticky !important;
+    }
+}
+
+@media ( min-width: 1201px) {
+    .afc-stepper__content {
+        height: calc(100% - 300px) !important
+    }
+}
+
+@media (min-width: 992px ) and ( max-width: 1200px) {
+    .afc-stepper__content {
+        height: calc(100% - 240px) !important
+    }
+}
+@media (min-width: 768px ) and ( max-width: 992px) {
+    .afc-stepper__content {
+        height: calc(100% - 240px) !important
+    }
+}
+@media (max-width: 992px) {
+    .button[data-step-to="2"],
+    .afc-stepper__footer [data-chain-id] {
+        width: 100% !important;
+        font-size: 12px !important;
+    }
+
+    .button[data-step-to="3"] {
+        width: 49% !important;
+        float: left;
+        font-size: 12px !important;
+        margin: 0;
+        margin-right: 1%;
+    }
+
+    [data-chain-id="3"] .button {
+        width: 100%;
+    }
     .afc-selected-times__mobile {
-        display: none;
+        bottom: 45px !important;
+        display: block;
+    }
+    .afc-selected-times__teacher {
+        bottom: 60px;
+    }
+}
+@media (max-width: 768px) {
+    .afc-stepper__content {
+        height: calc(100% - 270px) !important
+    }
+    /* .afc-stepper > .container {
+        height: calc(100% - 180px) !important;
+    } */
+    .afc-stepper__footer {
+        height: 100px;
+        overflow: hidden;
+        background-color: #fff;
+    }
+    .afc-stepper__footer [data-chain-id] {
+        bottom: 0;
+    }
+    .afc-selected-times__mobile {
+        bottom: 25px !important;
+        display: block;
+    }
+    .afc-selected-times__teacher {
+        bottom: 40px;
+        background-color: #fff;
+    }
+    .afc-selected-times__teacher .afc-selected-times__with {
+        font-size: 10px !important;
+        padding-right: 60px !important;
+    }
+    .afc-selected-times__teacher .afc-selected-times__with img {
+        right: 6px !important;
+        width: 40px !important;
+        height: 40px !important;
     }
 }
 
@@ -11231,4 +11159,764 @@ testimonial
 }
 .button-loading.loading .button-loading_preloader {
     display: inline-block !important;
+}
+
+@media (max-width: 1200px) {
+    .afc-stepper__tracker {
+        top: 30px !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: inherit !important;
+        position: fixed !important;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .afc-stepper__tracker:after {
+        left: 15px !important;
+        right: 15px !important;
+        width: initial !important;
+    }
+    .afc-stepper__wrapper {
+        top: 90px;
+    }
+}
+@media (max-width: 992px) {
+    .afc-stepper__content {
+        width: 100%;
+    }
+    .afc-stepper > .container {
+        width: 96%;
+        max-width: 100%;
+        margin: auto;
+    }
+
+    .afc-selected-times .afc-selected-times__items {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .afc-stepper__content {
+        width: 100%;
+    }
+    .afc-selected-times .afc-selected-times__title {
+        display: none;
+    }
+
+    .afc-stepper .container {
+        width: 100% !important;
+        padding: 0;
+    }
+
+    .afc-stepper p {
+        font-size: 12px;
+    }
+
+    .afc-stepper .el-card {
+        padding: 15px 20px;
+    }
+
+    .afc-stepper .afc-stepper__tracker {
+        top: 0;
+        height: 66px;
+        padding-top: 0;
+        overflow: hidden;
+        margin-bottom: 0;
+    }
+
+    .afc-stepper .afc-stepper__tracker:after {
+        top: 15px;
+    }
+
+    .afc-stepper .afc-stepper__content {
+        padding-bottom: 120px;
+    }
+
+    .afc-stepper .el-card {
+        margin-bottom: 6px;
+    }
+
+    .afc-stepper .el-card .afc-stepper__content__price {
+        top: 15px;
+        left: 20px;
+        font-size: 12px;
+    }
+
+    .afc-stepper .el-card .afc-stepper__content__title {
+        font-size: 11px;
+    }
+
+    .afc-stepper .el-card .afc-stepper__content__subtitle {
+        font-size: 10px;
+    }
+
+    .afc-stepper .afc-stepper__tracker .afc-stepper__tracker__heading {
+        font-size: 10px;
+    }
+
+    .afc-stepper .afc-stepper__content .afc-stepper__content__heading {
+        font-size: 12px;
+        text-align: center !important;
+        margin-bottom: 10px;
+    }
+
+    .afc-stepper .afc-stepper__content {
+        height: calc(100% - 220px);
+    }
+
+    /* Calendar */
+    .afc-calendar-week__day {
+        padding: 0 1px;
+    }
+
+    .afc-calendar-week__date span {
+        white-space: nowrap;
+        font-size: 10px !important;
+    }
+
+    .afc-carousel__title {
+        font-size: 11px;
+    }
+
+    .afc-stepper .afc-stepper__content::-webkit-scrollbar {
+        width: 1px;
+    }
+
+    .afc-calendar-week__day .afc-calendar-week__hover {
+        width: 100px;
+    }
+
+    .afc-calendar-week__day .afc-calendar-week__hover span {
+        font-size: 9px !important;
+    }
+
+    .afc-carousel .afc-carousel__prev,
+    .afc-carousel .afc-carousel__next {
+        font-size: 10px;
+    }
+
+    .afc-calendar-week__day .afc-calendar-week__hover {
+        right: 100%;
+    }
+
+    .afc-calendar-week__day:last-child .afc-calendar-week__hover,
+    .afc-calendar-week__day:nth-child(6) .afc-calendar-week__hover {
+        left: 100%;
+        right: inherit;
+    }
+}
+/*  */
+:root {
+    --text-color: #666;
+}
+.text-secondary {
+    color: var(--secondary) !important;
+}
+/* 
+* Tags
+*/
+.afc-tag {
+    color: #fff;
+    font-size: 14px;
+    line-height: 1;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 4px;
+    background-color: var(--secondary);
+    box-shadow: 0 0 6px 0 rgba(140, 152, 164, 0.25);
+}
+.afc-label {
+    color: #fff;
+    font-size: 12px;
+    display: inline-block;
+    padding: 8px 6px;
+    border-radius: 4px;
+}
+.afc-label--danger {
+    color: rgb(255, 102, 0);
+    background-color: rgba(255, 0, 0, .1);
+}
+.afc-label--primary {
+    color: var(--primary);
+    background-color: rgba(246, 147, 28, .1);
+}
+.afc-label--secondary {
+    color: var(--secondary);
+    background-color: rgba(104, 165, 28, .1);
+}
+/* 
+ * Teacher
+*/
+.afc-teacher {
+    /* font-family: iranyekan; */
+    position: relative;
+    padding: 45px 0;
+    margin-top: 110px;
+    margin-bottom: 60px;
+    background-color: #fff;
+    box-shadow: 0 3px 6px 0 rgba(140, 152, 164, 0.25);
+}
+.afc-teacher ul {
+    user-select: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.afc-teacher ul li {
+    display: inline-block;
+}
+.afc-teacher .container {
+    position: relative;
+}
+/* 
+ * Teacher: Avatar
+*/
+.afc-teacher .afc-teacher_avatar {
+    width: 97%;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #eee;
+    box-shadow: 0 3px 6px 0 rgba(140, 152, 164, 0.25);
+    margin: auto;
+}
+/* 
+ * Teacher: Details
+*/
+.afc-teacher .afc-teacher_details {
+    overflow: hidden;
+    position: relative;
+    padding-top: 0;
+    padding-right: 30px;
+}
+.afc-teacher .afc-teacher_details h1 {
+    font-size: 36px;
+}
+.afc-teacher .afc-teacher_details .afc-tag {
+    top: 9px;
+    left: 0;
+    position: absolute;
+}
+.afc-teacher .afc-label {
+    top: 0;
+    right: 20px;
+    position: absolute;
+}
+/* 
+* Teacher: Stars
+*/
+.afc-teacher_stars {
+    top: 0;
+    left: 20px;
+    direction: ltr;
+    text-align: left;
+    position: absolute;
+    margin: 6px 0 0;
+}
+.afc-teacher_stars ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.afc-teacher_stars ul li {
+    color: #999;
+    font-size: 14px;
+    display: inline-block;
+}
+.afc-teacher_stars ul li .active {
+    color: orange;
+}
+/* 
+* Teacher: Stats
+*/
+.afc-teacher_stats {
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+.afc-teacher_stats ul {
+    display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	align-items: stretch;
+	align-content: stretch;   
+	justify-content: space-between;
+}
+.afc-teacher_stats .item {
+    position: relative;
+    padding-right: 60px;
+}
+.afc-teacher_stats .item .line {
+    top: 9px;
+    left: -40%;
+    width: 1px;
+    height: 30px;
+    position: absolute;
+    background-color: #eee;
+}
+.afc-teacher_stats .item .title {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 4px;
+}
+.afc-teacher_stats .item .subtitle {
+    color: #999;
+    font-size: 12px;
+}
+.afc-teacher_stats .item .icon {
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    text-align: center;
+    padding-top: 6px;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+}
+.afc-teacher_stats .item .icon img {
+    width: 30px;
+    height: 30px;
+}
+/* 
+* Teacher: Lists
+*/
+.afc-teacher_lists-title {
+    position: relative;
+}
+.afc-teacher_lists-title i {
+    top: 6px;
+    right: 0;
+    font-size: 16px;
+    position: absolute;
+    display: none;
+}
+.afc-teacher_lists-title .title {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 9px;
+}
+/* 
+* Teacher: Flags
+*/
+.afc-teacher_flags {
+    margin-bottom: 45px;
+}
+.afc-teacher_flags ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.afc-teacher_flags ul li {
+    display: inline-block;
+}
+.afc-teacher_flags ul li img {
+    width: 30px;
+    height: 30px;
+    float: right;
+    overflow: hidden;
+    font-weight: 800;
+    margin-left: 10px;
+    border-radius: 50%;
+    box-shadow: 0 3px 6px 0 rgba(140, 152, 164, 0.25);
+}
+.afc-teacher_flags ul li span {
+    height: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: -0.03em;
+    display: inline-block;
+}
+/* 
+* Teacher: Skills
+*/
+.afc-teacher_skills {
+    margin-bottom: 15px;
+}
+.afc-teacher_skills ul {
+    list-style: none;
+    user-select: none;
+    padding: 0;
+    margin: 0;
+}
+.afc-teacher_skills ul li {
+    color: #666;
+    font-size: 12px;
+    text-align: center;
+    display: inline-block;
+    background-color: #f9f9f9;
+    padding: 9px 12px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+}
+.afc-teacher_skills ul li a {
+    display: block;
+}
+@media (max-width: 1200px) {
+    .afc-teacher .afc-teacher_details h1 {
+        font-size: 30px;
+    }
+    .afc-teacher_flags {
+        margin-bottom: 30px;
+    }
+    .afc-teacher_flags ul li span {
+        font-size: 14px;
+    }
+    .afc-teacher_stats .item .title {
+        font-size: 14px;
+    }
+}
+@media (max-width: 992px) {
+    .afc-teacher .afc-teacher_details {
+        padding: 0;
+    }
+    .afc-teacher .afc-teacher_avatar {
+        width: 300px !important;
+        height: 300px !important;
+        margin-bottom: 30px;
+    }
+    .afc-teacher .afc-teacher_details h1 {
+        text-align: center;
+    }
+    .afc-teacher_flags {
+        text-align: center;
+    }
+}
+@media (max-width: 768px) {
+    .afc-teacher { 
+        padding: 30px 0 15px;
+        margin-top: 90px;
+        margin-bottom: 30px;
+    }
+    .afc-teacher_stats ul {
+        display: block;
+    }
+    .afc-teacher_stats ul li {
+        width: 100%;
+        display: block;
+        margin-bottom: 30px;
+    }
+    .afc-teacher .afc-teacher_details h1 {
+        font-size: 24px;
+    }
+}
+@media (max-width: 570px) {
+
+}
+/* 
+* Text Slider
+*/
+.afc-text-slider .afc-text-slider_content {
+    overflow: hidden;
+}
+.afc-text-slider .afc-text-slider_collapser {
+    color: var(--primary);
+    cursor: pointer;
+    display: block;
+    font-weight: 700;
+    padding-top: 15px;
+}
+.afc-text-slider .afc-text-slider_collapser i {
+    top: 2px;
+    position: relative;
+    margin-right: 3px;
+}
+
+.afc-text-slider .afc-text-slider_collapser_more-text {
+    display: none;
+}
+.afc-text-slider.collapsed .afc-text-slider_collapser_more-text {
+    display: inline-block;
+}
+.afc-text-slider.collapsed .afc-text-slider_collapser_less-text{
+    display: none;
+}
+.afc-text-slider.collapsed .afc-text-slider_content {
+    height: 78px;
+}
+@media (max-width: 768px) {
+    .afc-text-slider.collapsed .afc-text-slider_content {
+        height: 66px;
+    }
+}
+/* 
+* Timeline
+*/
+.afc-timeline {
+    padding-top: 15px;
+}
+.afc-timeline h4 {
+    line-height: 1;
+    font-size: 16px;
+}
+.afc-timeline ul {
+    list-style: none;
+    padding-left: 0;
+}
+.afc-timeline ul li {
+    overflow: hidden;
+    position: relative;
+    padding: 0 30px 15px 0;    
+    border-right: 1px solid #eee;
+    margin: 0;
+}
+.afc-timeline ul li:not(:last-child) p {
+    margin-bottom: 30px;
+}
+.afc-timeline ul li:before {
+    top: 8px;
+    right: 0;
+    width: 12px;
+    height: 1px;
+    content: "";
+    position: absolute;
+    background-color: #eee;
+}
+.afc-timeline ul li:after {
+    top: 6px;
+    right: 12px;
+    width: 5px;
+    height: 5px;
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    background-color: var(--primary);
+}
+/*
+ * Sticky CTA
+*/
+.afc-sticky-cta {
+    bottom: 0;
+    z-index: 99;
+    display: none;
+    position: -webkit-sticky;
+    position: sticky;
+    font-size: 12px;
+    padding-bottom: 7px;
+    background-color: #fff;
+    align-self: flex-start;
+    box-shadow: 0 3px 6px 0 rgba(140, 152, 164, 0.25);
+}
+.afc-sticky-cta .afc-sticky-cta_inner {
+    padding: 7px 0;
+}
+.afc-sticky-cta .afc-sticky-cta_inner p {
+    top: 6px;
+    white-space: nowrap;
+    position: relative;
+    margin: 0;
+}
+.afc-sticky-cta .afc-label.afc-label--primary {
+    color: #ff004c !important;
+}
+@media (max-width: 992px) {
+    .afc-sticky-cta { 
+        display: block;
+    }
+}
+/*
+ * Reserve
+*/
+.afc-sticky-reserve {
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    display: none;
+    z-index: 99999;
+    position: -webkit-sticky;
+    position: sticky;
+    font-size: 12px;
+    padding-top: 9px;
+    align-self: flex-start;
+    background-color: #fff;
+    box-shadow: 0 3px 6px 0 rgba(140, 152, 164, 0.25);
+}
+/* 
+ * Reserve: Teacher
+*/
+.afc-sticky-reserve .afc-sticky-reserve_teacher {
+    float: right;
+    height: 55px;
+    min-width: 220px;
+    position: relative;
+    padding-right: 55px;
+}
+.afc-sticky-reserve .afc-sticky-reserve_teacher p {
+    color: #000;
+    line-height: 1;
+    margin-bottom: 15px;
+}
+.afc-sticky-reserve .afc-sticky-reserve_teacher img {
+    top: 0;
+    right: 0;
+    width: 45;
+    height: 45px;
+    display: block;
+    position: absolute;
+    margin-bottom: 0;
+}
+/* 
+ * Reserve: Links
+*/
+.afc-sticky-reserve .afc-sticky-reserve_links {
+    user-select: none;
+}
+.afc-sticky-reserve .afc-sticky-reserve_links [data-chain-id] {
+    text-align: left !important;
+}
+.afc-sticky-reserve .afc-sticky-reserve_links [data-chain-id]:not(.active) {
+    display: none;
+}
+/* 
+ * Reserve: Mobile
+*/
+.afc-sticky-reserve .afc-sticky-reserve_mobile {
+    top: 0;
+    left: 0;
+    height: 45px;
+    color: var(--secondary);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    position: absolute;
+}
+.afc-sticky-reserve .afc-sticky-reserve_mobile .afc-sticky-reserve_mobile_btn {
+    overflow: hidden;
+    position: relative;
+    padding-left: 36px;
+}
+.afc-sticky-reserve .afc-sticky-reserve_mobile .afc-sticky-reserve_mobile_btn > span {
+    top: 1px;
+    bottom: 3px;
+    display: block;
+    position: relative;
+    margin-bottom: 3px;
+}
+.afc-sticky-reserve .afc-sticky-reserve_mobile .afc-sticky-reserve_mobile_btn .afc-sticky-reserve_mobile_btn_count {
+    font-size: 10px;
+}
+.afc-sticky-reserve .afc-sticky-reserve_mobile .afc-sticky-reserve_mobile_modal {
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    max-width: 100%;
+    position: fixed;
+    opacity: 0;
+    visibility: hidden;
+    margin: auto;
+    padding: 15px;
+    z-index: 9999999999;
+}
+.afc-sticky-reserve .afc-sticky-reserve_mobile .afc-sticky-reserve_mobile_modal > div {
+    z-index: 1;
+    padding: 20px;
+    position: relative;
+    border-radius: 12px;
+    background-color: #fff;
+    border: 3px solid orange;
+    box-shadow: 0 3px 6px 0 rgba(140, 152, 164, 0.95) !important;
+}
+.afc-sticky-reserve .afc-sticky-reserve_mobile .afc-sticky-reserve_mobile_modal > div > p {
+    font-size: 12px;
+    display: inline-block;
+}
+.afc-sticky-reserve .afc-sticky-reserve_mobile .afc-sticky-reserve_mobile_modal > div > span {
+    color: red;
+    float: left;
+    font-size: 12px;
+}
+.afc-sticky-reserve .afc-sticky-reserve_mobile .afc-sticky-reserve_mobile_modal .afc-sticky-reserve_mobile_modal_list {
+    height: 270px;
+    overflow-y: auto;
+}
+.afc-sticky-reserve .afc-sticky-reserve_mobile .afc-sticky-reserve_mobile_modal .afc-sticky-reserve_mobile_modal_list li {
+    cursor: pointer;
+    font-size: 10px;
+    display: inline-block;
+    position: relative;
+    padding: 6px 15px;
+    margin-left: 3px;
+    margin-bottom: 6px;
+    border-radius: 60px;
+    background-color: #eee;
+}
+.afc-sticky-reserve .afc-sticky-reserve_mobile .afc-sticky-reserve_mobile_modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+.afc-sticky-reserve .afc-sticky-reserve_mobile .afc-sticky-reserve_mobile_modal:before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    content: "";
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+/* 
+ * Reserve: Other
+*/
+.afc-sticky-reserve .afc-selected-times__close {
+    top: 1px;
+    position: relative;
+    margin-left: 6px;
+}
+/* 
+ * Reserve: stats active
+*/
+.afc-sticky-reserve.active {
+    display: block !important;
+}
+@media (min-width: 1201px) {
+    .afc-sticky-reserve {
+        height: 66px !important;
+        border-top: 2px solid var(--primary);
+    }
+    .afc-sticky-reserve .afc-sticky-reserve_mobile {
+        position: relative;
+        display: inline-block;
+        padding-right: 15px;
+        margin-right: 15px;
+        border-right: 1px solid #eee;
+    }
+    .afc-sticky-reserve .afc-sticky-reserve_mobile .afc-sticky-reserve_mobile_modal {
+        width: 1100px;
+        max-width: 100% !important;
+    }
+}
+@media (max-width: 1200px) {
+    /* 
+     * Reserve: Mobile
+    */
+    .afc-sticky-reserve .afc-sticky-reserve_mobile .afc-sticky-reserve_mobile_btn {
+        padding-left: 6px;
+    }
+    /* 
+     * Reserve: Links
+    */
+    .afc-sticky-reserve .afc-sticky-reserve_links [data-chain-id="1"] .button {
+        width: 100%;
+    }
+    .afc-sticky-reserve .afc-sticky-reserve_links [data-chain-id="2"] .button {
+        width: 48%;
+        margin: 0;
+        margin-right: 1%;
+    }
+    .afc-sticky-reserve .afc-sticky-reserve_links [data-chain-id="3"] .button {
+        width: 100%;
+    }
+}
+/* 
+ * Fixed
+*/
+@media (min-width: 1200px) {
+    [data-modal-id="modal-afc-stepper-calendar"] .modal-wrapper {
+        top: calc(50% - 30px) !important;
+    }
 }
