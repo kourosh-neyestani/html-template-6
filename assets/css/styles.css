@@ -11351,8 +11351,8 @@ testimonial
     /* font-family: iranyekan; */
     position: relative;
     padding: 45px 0;
-    margin-top: 110px;
-    margin-bottom: 60px;
+    margin-top: 80px;
+    margin-bottom: 40px;
     background-color: #fff;
     box-shadow: 0 3px 6px 0 rgba(140, 152, 164, 0.25);
 }
@@ -11387,10 +11387,44 @@ testimonial
     overflow: hidden;
     position: relative;
     padding-top: 0;
-    padding-right: 30px;
+    padding-right: 15px;
 }
 .afc-teacher .afc-teacher_details h1 {
     font-size: 36px;
+    position: relative;
+}
+.afc-teacher .afc-teacher_details h1 > span {
+    float: right;
+    margin-left: 20px;
+}
+.afc-teacher .afc-teacher_details h1 .afc-teacher_flags {
+    display: inline-block;
+}
+.afc-teacher .afc-teacher_details h1 .afc-teacher_flags ul {
+    list-style: none;
+    padding: 4px 0 0;
+    margin: 0;
+}
+.afc-teacher .afc-teacher_details h1 .afc-teacher_flags ul li {
+    display: inline-block;
+}
+.afc-teacher .afc-teacher_details h1 .afc-teacher_flags ul li img {
+    width: 30px;
+    height: 30px;
+    float: right;
+    overflow: hidden;
+    font-weight: 800;
+    margin-left: 10px;
+    border-radius: 50%;
+    box-shadow: 0 3px 6px 0 rgba(140, 152, 164, 0.25);
+}
+.afc-teacher .afc-teacher_details h1 .afc-teacher_flags ul li span {
+    height: 30px;
+    float: right;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: -0.03em;
 }
 .afc-teacher .afc-teacher_details .afc-tag {
     top: 9px;
@@ -11406,7 +11440,7 @@ testimonial
 * Teacher: Stars
 */
 .afc-teacher_stars {
-    top: 0;
+    top: 6px;
     left: 20px;
     direction: ltr;
     text-align: left;
@@ -11419,7 +11453,7 @@ testimonial
     margin: 0;
 }
 .afc-teacher_stars ul li {
-    color: #999;
+    color: orange;
     font-size: 14px;
     display: inline-block;
 }
@@ -11447,7 +11481,7 @@ testimonial
 }
 .afc-teacher_stats .item .line {
     top: 9px;
-    left: -40%;
+    left: -50%;
     width: 1px;
     height: 30px;
     position: absolute;
@@ -11500,38 +11534,6 @@ testimonial
     margin-bottom: 9px;
 }
 /* 
-* Teacher: Flags
-*/
-.afc-teacher_flags {
-    margin-bottom: 45px;
-}
-.afc-teacher_flags ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.afc-teacher_flags ul li {
-    display: inline-block;
-}
-.afc-teacher_flags ul li img {
-    width: 30px;
-    height: 30px;
-    float: right;
-    overflow: hidden;
-    font-weight: 800;
-    margin-left: 10px;
-    border-radius: 50%;
-    box-shadow: 0 3px 6px 0 rgba(140, 152, 164, 0.25);
-}
-.afc-teacher_flags ul li span {
-    height: 30px;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 30px;
-    letter-spacing: -0.03em;
-    display: inline-block;
-}
-/* 
 * Teacher: Skills
 */
 .afc-teacher_skills {
@@ -11556,6 +11558,15 @@ testimonial
 .afc-teacher_skills ul li a {
     display: block;
 }
+@media (min-width: 992px) {
+    .afc-teacher .afc-teacher_avatar {
+        margin-top: 15px;
+    }
+    .afc-teacher .afc-teacher_details h1 {
+        height: 45px;
+        overflow: hidden;
+    }
+}
 @media (max-width: 1200px) {
     .afc-teacher .afc-teacher_details h1 {
         font-size: 30px;
@@ -11571,6 +11582,9 @@ testimonial
     }
 }
 @media (max-width: 992px) {
+    .afc-teacher {
+        margin-top: 60px;
+    }
     .afc-teacher .afc-teacher_details {
         padding: 0;
     }
@@ -11581,6 +11595,14 @@ testimonial
     }
     .afc-teacher .afc-teacher_details h1 {
         text-align: center;
+    }
+    .afc-teacher .afc-teacher_details h1 > span {
+        margin-bottom: 12px;
+    }
+    .afc-teacher .afc-teacher_details h1 > span,
+    .afc-teacher .afc-teacher_details h1 .afc-teacher_flags {
+        display: block;
+        float: inherit;
     }
     .afc-teacher_flags {
         text-align: center;
@@ -11612,6 +11634,10 @@ testimonial
 */
 .afc-text-slider .afc-text-slider_content {
     overflow: hidden;
+}
+.afc-text-slider .afc-text-slider_content p {
+    /* Needs to test. */
+    margin-bottom: 9px;
 }
 .afc-text-slider .afc-text-slider_collapser {
     color: var(--primary);
