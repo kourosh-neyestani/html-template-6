@@ -11083,9 +11083,12 @@ testimonial
     text-align: center;
 }
 
-.afc-btn-edit-mobile-number p {
+.afc-btn-edit-mobile-number p,
+.afc-btn-edit-mobile-number span {
     color: var(--secondary) !important;
+    display: block;
     text-align: center;
+    margin-bottom: 15px;
     border-bottom: 1px dashed var(--secondary) !important;
 }
 
@@ -11124,7 +11127,7 @@ testimonial
     position: absolute;
     display: inline-block;
 }
-.button-loading .button-loading_preloader div {
+.button-loading .button-loading_preloader span {
     width: 6px;
     height: 6px;
     display: inline-block;
@@ -11133,13 +11136,13 @@ testimonial
     background-color: #fff;
     animation: preloader-7 1.2s linear infinite;
 }
-.button-loading .button-loading_preloader div:nth-child(1) {
+.button-loading .button-loading_preloader span:nth-child(1) {
     animation: preloader-7 600ms linear infinite;
 }
-.button-loading .button-loading_preloader div:nth-child(2) {
+.button-loading .button-loading_preloader span:nth-child(2) {
     animation: preloader-7 1500ms linear infinite;
 }
-.button-loading .button-loading_preloader div:nth-child(3) {
+.button-loading .button-loading_preloader span:nth-child(3) {
     animation: preloader-7 900ms linear infinite;
 }
 @keyframes preloader-7 {
@@ -11154,7 +11157,7 @@ testimonial
 .button-loading.loading {
     pointer-events: none;
 }
-.button-loading.loading span {
+.button-loading.loading .button-text {
     display: none;
 }
 .button-loading.loading .button-loading_preloader {
