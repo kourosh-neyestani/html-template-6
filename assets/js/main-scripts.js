@@ -48,6 +48,17 @@ var AFRA = {};
             return $state;
         }
 
+        $(".el-select2").select2({
+            dir: "rtl",
+            placeholder: "",
+            templateResult: formatDefault,
+        });
+
+        $(".el-select2-multi-flag").select2({
+            dir: "rtl",
+            templateResult: formatFlags,
+        });
+
         // Teacher
         $(".el-select2-teacher-languages").select2({
             dir: "rtl",
