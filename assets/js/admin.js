@@ -128,7 +128,7 @@
                     .text(price * 5 - calc(price * 5, v))
                     .digits();
             } else if (d === 10) {
-                var p = 10 * price,
+                var p = 10 * (price + calc(price, percent)),
                     q = calc(p, v),
                     o = p - q;
 
