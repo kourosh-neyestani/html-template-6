@@ -1049,3 +1049,6 @@ table.dataTable thead th, table.dataTable thead td {
 .admin-panel_item img {
     width: 100%;
 }
+.dataTables_wrapper .dataTables_length select {
+    border: 0;
+}
