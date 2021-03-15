@@ -194,7 +194,7 @@
     </div>
     <!--/Wrapper-->
     <!--Modal-->
-    <div data-modal-id="modal-md" class="el-modal-overlay active" style="display: block;">
+    <div data-modal-id="modal-score" class="el-modal-overlay active" style="display: block;">
         <span class="modal-close modal-close-overlay"></span>
         <div class="modal-wrapper">
             <!--Modal-->
@@ -203,20 +203,63 @@
                     <button class="button modal-close modal-close-modal" type="button">
                         <i class="fa fa-times"></i>
                     </button>
-                    <h3 class="modal-title">لطفا نام خود را وارد نمایید</h3>
+                    <h3 class="modal-title">به استادتان امتیاز بدید</h3>
                 </div>
                 <div class="modal-body">
-                    <!-- <p>توضیحات اضافی در صورتی که نیاز هست. مثلا برای ارتباط بهتر لطفا نام و نام خانوادگی خود را وارد نمایید.</p> -->
                     <form action="" class="form-3">
                         <div class="form-item">
-                            <label for="" class="form-label">نام و نام خانوادگی</label>
-                            <input type="text">
+                            <label for="" class="form-label">امتیاز دهید</label>
+                            <div class="input-default-style el-stars-score">
+                                <fieldset class="rating">
+                                    <!---->
+                                    <input type="radio" id="star5" name="rating" value="5">
+                                    <label class="full" for="star5" title="۵ ستاره"></label>
+                                    <!--/-->
+                                    <!---->
+                                    <input type="radio" id="star4half" name="rating" value="4.5">
+                                    <label class="half" for="star4half" title="۴٫۵ ستاره"></label>
+                                    <!--/-->
+                                    <!---->
+                                    <input type="radio" id="star4" name="rating" value="4">
+                                    <label class="full" for="star4" title="۴ ستاره"></label>
+                                    <!--/-->
+                                    <!---->
+                                    <input type="radio" id="star3half" name="rating" value="3.5">
+                                    <label class="half" for="star3half" title="۳٫۵ ستاره"></label>
+                                    <!--/-->
+                                    <!---->
+                                    <input type="radio" id="star3" name="rating" value="3">
+                                    <label class="full" for="star3" title="۳ ستاره"></label>
+                                    <!--/-->
+                                    <!---->
+                                    <input type="radio" id="star2half" name="rating" value="2.5">
+                                    <label class="half" for="star2half" title="۲٫۵ ستاره"></label>
+                                    <!--/-->
+                                    <!---->
+                                    <input type="radio" id="star2" name="rating" value="2">
+                                    <label class="full" for="star2" title="۲ ستاره"></label>
+                                    <!--/-->
+                                    <!---->
+                                    <input type="radio" id="star1half" name="rating" value="1.5">
+                                    <label class="half" for="star1half" title="۱٫۵ ستاره"></label>
+                                    <!--/-->
+                                    <!---->
+                                    <input type="radio" id="star1" name="rating" value="1">
+                                    <label class="full" for="star1" title="۱ ستاره"></label>
+                                    <!--/-->
+                                    <!---->
+                                    <input type="radio" id="starhalf" name="rating" value=".5">
+                                    <label class="half" for="starhalf" title="۰٫۵ ستاره"></label>
+                                    <!--/-->
+                                </fieldset>
+                            </div>
                         </div>
-                        <button class="button button-md button-primary" type="button">
-                            <span>ثبت اطلاعات</span>
-                        </button>
-                        <button class="button button-md button-default modal-close" type="button">
-                            <span>بعدا پر میکنم</span>
+                        <div class="form-item">
+                            <label for="" class="form-label">نظر خود را بنویسید</label>
+                            <textarea name="" id="" cols="30" rows="10" style="padding-top: 15px;"></textarea>
+                        </div>
+                        <button class="button button-md button-block button-primary" type="button">
+                            <span>ثبت امتیاز</span>
                         </button>
                     </form>
                 </div>

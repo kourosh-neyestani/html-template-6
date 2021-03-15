@@ -19,4 +19,56 @@
  div.dts{display:block !important}div.dts tbody th,div.dts tbody td{white-space:nowrap}div.dts div.dts_loading{z-index:1}div.dts div.dts_label{position:absolute;right:10px;background:rgba(0,0,0,0.8);color:white;box-shadow:3px 3px 10px rgba(0,0,0,0.5);text-align:right;border-radius:3px;padding:0.4em;z-index:2;display:none}div.dts div.dataTables_scrollBody{background:repeating-linear-gradient(45deg, #edeeff, #edeeff 10px, #fff 10px, #fff 20px)}div.dts div.dataTables_scrollBody table{z-index:2}div.dts div.dataTables_paginate,div.dts div.dataTables_length{display:none}
  
  
- 
+ .form-3 .form-item .input-default-style {
+    width: 100%;
+    display: block;
+    min-height: 45px;
+    padding: 12px 25px;
+    padding-top: 10px;
+    padding-left: 7px;
+    border-radius: 6px;
+    border: 1px solid #e3e3e3;
+    border-bottom: 3px solid #e3e3e3;
+}
+/* 
+ * Stars
+*/
+.el-stars-score .rating {
+    border: none;
+    float: left;
+}
+ .el-stars-score .rating input {
+     display: none;
+ }
+ .el-stars-score .rating > label:before {
+    margin: 0 3px;
+    font-size: 14px;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005";
+}
+.el-stars-score .rating > .half {
+    z-index: 15;
+    position: relative;
+    background-color: red !important;
+}
+.el-stars-score .rating > .half:before {
+    left: 0;
+    content: "\f089";
+    position: absolute;
+}
+.el-stars-score .rating > label {
+    color: #ddd;
+    float: right;
+}
+.el-stars-score .rating > input:checked ~ label,
+.el-stars-score .rating:not(:checked) > label:hover,
+.el-stars-score .rating:not(:checked) > label:hover ~ label {
+    color: gold;
+}
+.el-stars-score .rating > input:checked + label:hover,
+.el-stars-score .rating > input:checked ~ label:hover,
+.el-stars-score .rating > label:hover ~ input:checked ~ label,
+.el-stars-score .rating > input:checked ~ label:hover ~ label {
+    color: #ffed85;
+}
