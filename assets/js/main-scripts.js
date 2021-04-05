@@ -151,7 +151,7 @@ var AFRA = {};
     /*====== Modal ======*/
     AFRA.Modal = function () {
         var body = $("body");
-        var btnModal = $("button[data-modal-id]");
+        var btnModal = $("button[data-modal-id], .afc-calendar-week__day > ul > li[data-modal-id]:not(.booked)");
         var btnClose = $(".el-modal-overlay .modal-close");
 
         btnModal.on("click", function (e) {
