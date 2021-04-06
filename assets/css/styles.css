@@ -11956,3 +11956,107 @@ testimonial
         top: calc(50% - 30px) !important;
     }
 }
+/*------------------------------------
+    Element: Social Items
+------------------------------------*/
+.el-social-items {
+    list-style: none;
+    text-align: center;
+    position: relative;
+    z-index: 3;
+    padding: 0;
+    margin: 0;
+}
+.el-social-items li {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    line-height: 39px;
+    border-radius: 50%;
+    background-color: var(--primary);
+}
+.el-social-items li a {
+    display: block;
+}
+.el-social-items li:hover {
+    color: #fff;
+    background-color: #333;
+}
+/*------------------------------------
+    Section: CU
+------------------------------------*/
+.el-card--2 {
+    padding: 30px;
+    margin-bottom: 15px;
+}
+.el-card--2 .title {
+    color: #454545;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+@media (max-width: 992px) {
+    .afc-contact-form img {
+        display: none;
+    }
+}
+
+.row--line-break {
+    padding-top: 45px;
+    padding-bottom: 30px;
+    margin-bottom: -6px;
+}
+.afc-values-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+@media (min-width: 992px) {
+    .row--line-break {
+        position: relative;
+    }
+    .row--line-break:before {
+        top: -6px;
+        left: 0;
+        right: 0;
+        width: 1px;
+        height: 100%;
+        content: "";
+        position: absolute;
+        margin: auto;
+        background-color: var(--primary);
+    }    
+    .afc-values-list.afc-values-list--left ul {
+        padding-right: 45px;
+    }
+    .afc-values-list.afc-values-list--left ul li {
+        position: relative;
+    }
+    .afc-values-list.afc-values-list--left ul li:before {
+        top: 45px;
+        right: -60px;
+        width: 75px;
+        height: 1px;
+        content: "";
+        position: absolute;
+        background-color: var(--primary);
+    }
+    .afc-values-list.afc-values-list--right ul {
+        padding-left: 45px;
+    }
+    .afc-values-list.afc-values-list--right ul li {
+        position: relative;
+    }
+    .afc-values-list.afc-values-list--right ul li:before {
+        top: 45px;
+        left: -60px;
+        width: 75px;
+        height: 1px;
+        content: "";
+        position: absolute;
+        background-color: var(--primary);
+    }
+}
