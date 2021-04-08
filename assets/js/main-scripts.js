@@ -593,11 +593,13 @@ var AFRA = {};
             e.preventDefault();
             body.addClass("state-menu");
             sidenav.addClass("active");
+            $("#sidenav-sorting").removeClass("active");
         });
         buttonClose.on("click", function (e) {
             e.preventDefault();
             body.removeClass("state-menu");
             sidenav.removeClass("active");
+            $("#sidenav-sorting").removeClass("active");
         });
     };
 
@@ -611,11 +613,13 @@ var AFRA = {};
             e.preventDefault();
             body.addClass("state-menu");
             sidenav.addClass("active");
+            $("#sidenav-filter").removeClass("active");
         });
         buttonClose.on("click", function (e) {
             e.preventDefault();
             body.removeClass("state-menu");
             sidenav.removeClass("active");
+            $("#sidenav-filter").removeClass("active");
         });
     };
 
@@ -1318,19 +1322,19 @@ $(document).ready(function () {
                 spaceBetween: 12,
             },
             768: {
-                slidesPerView: 2.4,
+                slidesPerView: 2.2,
                 spaceBetween: 12,
             },
-            900: {
+            992: {
                 slidesPerView: 3,
                 spaceBetween: 15,
             },
             1100: {
-                slidesPerView: 4,
+                slidesPerView: 3,
                 spaceBetween: 15,
             },
             1300: {
-                slidesPerView: 4.5,
+                slidesPerView: 3.5,
                 spaceBetween: 15,
             },
         },
