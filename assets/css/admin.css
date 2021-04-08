@@ -1052,3 +1052,17 @@ table.dataTable thead th, table.dataTable thead td {
 .dataTables_wrapper .dataTables_length select {
     border: 0;
 }
+
+
+@media (max-width: 992px) {
+    .col-admin-sidebar {
+        order: 2;
+    }
+    .col-admin-content {
+        order: 1;
+    }
+}
+
+@media (min-width: 992px) {
+    
+}
