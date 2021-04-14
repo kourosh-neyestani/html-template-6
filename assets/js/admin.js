@@ -140,6 +140,120 @@
         });
     };
 
+    /*====== Admin: Pricing ======*/
+    AFRA.Admin_Pricing_3 = function () {
+        
+        // Get Data
+        var input_01session = $(".admin-pricing__get--01"),
+            input_05session = $(".admin-pricing__get--05").find("select"),
+            input_10session = $(".admin-pricing__get--10").find("select"),
+            input_trial_session = $(".admin-pricing__get--trial").find("select");
+
+        var fees = parseInt($(".admin-panel--pricing").data("pricing-fees")),
+            trial = input_trial_session.val() || 0, 
+            price = input_01session.val() || 0,       
+            discount_05 = input_05session.val() || 0, 
+            discount_10 = input_10session.val() || 0,
+            format = wNumb({
+                thousand: ",",
+                decimals: 0,
+            });
+        
+        // Get Final-Price
+        function get_final_price(count, discount = 0, new_fees = fees, new_price = price) {
+
+            var bf = count * new_price;
+
+            if (discount !== 0) {
+                bf = bf - ((bf * discount) / 100);
+            }
+
+            if (new_fees !== 0) {
+                var af = (bf * new_fees) / 100;
+                var bf = bf + af;
+            }
+
+            return format.to(bf);
+        }
+
+        function print() {
+            // Final-Price with fees.
+            $(".final-income--01session").text(get_final_price(1, 0));
+            $(".final-income--05session").text(get_final_price(5, discount_05));
+            $(".final-income--10session").text(get_final_price(10, discount_10));
+
+            // Teacher's salary.
+            $(".teacher-income--01session").text(get_final_price(1, 0, 0));
+            $(".teacher-income--05session").text(get_final_price(5, discount_05, 0));
+            $(".teacher-income--10session").text(get_final_price(10, discount_10, 0));
+        }
+
+        print();
+
+        input_01session.on("input", function(e) {
+            var value = parseInt(e.target.value);
+            price = value;
+
+            if (!isNaN(value)) {
+                print();
+            } else {
+                price = 0;
+                print();
+            }
+        })
+
+        input_05session.on("change", function (e) {
+            var value = parseInt(e.target.value);
+            discount_05 = value;
+
+            if (!isNaN(value)) {
+                print();
+            } else {
+                discount_05 = 0;
+                print();
+            }
+        })
+        
+        input_10session.on("change", function (e) {
+            var value = parseInt(e.target.value);
+            discount_10 = value;
+
+            if (!isNaN(value)) {
+                print();
+            } else {
+                discount_10 = 0;
+                print();
+            }
+        })
+
+        // Echo Trial
+        if (trial === 0) {
+            $(".teacher-income--trial").text("رایگان");
+            $(".teacher-income--trial").addClass("text-danger");
+            $(".teacher-income--trial--text").hide();
+        } else {
+            $(".teacher-income--trial").text(get_final_price(1, 0, -fees, trial));     
+        }
+
+        input_trial_session.on("change", function (e) {
+            var value = parseInt(e.target.value);
+            
+            if (!isNaN(value) && value !== 0) {
+                $(".teacher-income--trial").removeClass("text-danger");
+                $(".teacher-income--trial").text(get_final_price(1, 0, -fees, value));        
+                $(".teacher-income--trial--text").show();
+            } else {
+                $(".teacher-income--trial").text("رایگان");
+                $(".teacher-income--trial").addClass("text-danger");
+                $(".teacher-income--trial--text").hide();
+            }
+        })
+        
+        // Set Fees
+        $(".admin-pricing__set--fees").text(fees);
+        
+    }
+
     /*====== Admin: Multi_Checkboxes ======*/
     AFRA.Admin_Multi_Checkboxes = function () {
         var i = 0,
@@ -181,8 +295,9 @@
 
     $(document).ready(function () {
         AFRA.Admin_Tabs();
-        AFRA.Admin_Pricing();
-        AFRA.Admin_Pricing_2();
+        // AFRA.Admin_Pricing();
+        // AFRA.Admin_Pricing_2();
+        AFRA.Admin_Pricing_3();
         AFRA.Admin_Multi_Checkboxes();
     });
 })(jQuery);

@@ -244,7 +244,7 @@
                             <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-admin-content">
                                 <!--pricing-->
                                 <form action="" class="form-3">
-                                    <div class="el-panel admin-el-panel admin-panel--pricing" data-pricing-fees="10">
+                                    <div class="el-panel admin-el-panel admin-panel--pricing" data-pricing-fees="15">
                                         <div class="el-panel-body">
                                             <div>
                                                 <div class="el-panel-title">
@@ -254,14 +254,14 @@
                                                         <div class="col-12 col-md-6">
                                                             <div class="form-item">
                                                                 <label class="form-label">قیمت به ازای هر جلسه (تومان)</label>
-                                                                <input type="number" class="admin-pricing__get--01" value="100000">
+                                                                <input type="number" value="100000">
                                                             </div>
                                                         </div>
                                                         <div class="col-12 col-md-6">
                                                             <div class="admin-calculate-price">
                                                                 <div style="padding-top: 9px">
-                                                                    <span class="d-block" style="height: 15px; line-height: 15px;">قیمت نهایی: (به اضافه <i style="font-style: normal !important;" class="admin-pricing__set--fees">0</i>٪ کمیسیون)</span>
-                                                                    <span class="output text-secondary admin-panel--pricing_1session final-income--01session" style="font-size: 15px; margin-left: 3px;" data-pricing-calculate-for-one="1">0</span>
+                                                                    <span class="d-block" style="height: 15px; line-height: 15px;">قیمت نهایی: (به اضافه ۱۵٪ کمیسیون)</span>
+                                                                    <span class="output text-secondary admin-panel--pricing_1session" style="font-size: 15px; margin-left: 3px;" data-pricing-calculate-for-one="1">0</span>
                                                                     <span>تومان</span>
                                                                 </div>
                                                             </div>
@@ -272,7 +272,7 @@
                                                         <div class="col-12 col-md-6">
                                                             <div class="form-item">
                                                                 <label class="form-label">درصد تخفیف برای ۵ جلسه آموزش</label>
-                                                                <div class="input-select admin-panel--pricing_select admin-panel--pricing_select--5sessions admin-pricing__get--05">
+                                                                <div class="input-select admin-panel--pricing_select admin-panel--pricing_select--5sessions">
                                                                     <select class="el-select2" required oninvalid="this.setCustomValidity('لطفا یک گزینه رو انتخاب کنید.')" oninput="this.setCustomValidity('')" >
                                                                         <option value="0">0</option>
                                                                         <option value="5">5</option>
@@ -286,8 +286,8 @@
                                                         <div class="col-12 col-md-6">
                                                             <div class="admin-calculate-price">
                                                                 <div style="padding-top: 9px">
-                                                                    <span class="d-block" style="height: 15px; line-height: 15px;">قیمت نهایی: (به اضافه <i style="font-style: normal !important;" class="admin-pricing__set--fees">0</i>٪ کمیسیون)</span>
-                                                                    <span class="output text-secondary admin-panel--pricing_5session final-income--05session" style="font-size: 15px; margin-left: 3px;">0</span>
+                                                                    <span class="d-block" style="height: 15px; line-height: 15px;">قیمت نهایی: (به اضافه ۱۵٪ کمیسیون)</span>
+                                                                    <span class="output text-secondary admin-panel--pricing_5session" style="font-size: 15px; margin-left: 3px;">0</span>
                                                                     <span>تومان</span>
                                                                 </div>
                                                             </div>
@@ -298,11 +298,11 @@
                                                         <div class="col-12 col-md-6">
                                                             <div class="form-item">
                                                                 <label class="form-label">درصد تخفیف برای 10 جلسه آموزش</label>
-                                                                <div class="input-select admin-panel--pricing_select admin-panel--pricing_select--10sessions admin-pricing__get--10">
+                                                                <div class="input-select admin-panel--pricing_select admin-panel--pricing_select--10sessions">
                                                                     <select class="el-select2" required oninvalid="this.setCustomValidity('لطفا یک گزینه رو انتخاب کنید.')" oninput="this.setCustomValidity('')">
                                                                         <option value="0">0</option>
                                                                         <option value="5">5</option>
-                                                                        <option value="10" selected>10</option>
+                                                                        <option value="10" selected="selected">10</option>
                                                                         <option value="15">15%</option>
                                                                         <option value="20">20%</option>
                                                                     </select>
@@ -312,8 +312,8 @@
                                                         <div class="col-12 col-md-6">
                                                             <div class="admin-calculate-price">
                                                                 <div style="padding-top: 9px">
-                                                                    <span class="d-block" style="height: 15px; line-height: 15px;">قیمت نهایی: (به اضافه <i style="font-style: normal !important;" class="admin-pricing__set--fees">0</i>٪ کمیسیون)</span>
-                                                                    <span class="output text-secondary admin-panel--pricing_10session final-income--10session" style="font-size: 15px; margin-left: 3px;">0</span>
+                                                                    <span class="d-block" style="height: 15px; line-height: 15px;">قیمت نهایی: (به اضافه ۱۵٪ کمیسیون)</span>
+                                                                    <span class="output text-secondary admin-panel--pricing_10session" style="font-size: 15px; margin-left: 3px;">0</span>
                                                                     <span>تومان</span>
                                                                 </div>
                                                             </div>
@@ -332,7 +332,7 @@
                                                         <div class="admin-panel_item text-center" style="padding-top: 15px; padding-bottom: 15px; margin-bottom: 15px; border-radius: 6px; border: 1px solid #eee; border-bottom: 3px solid #e3e3e3;">
                                                             <span class="title" style="color: #666; display: block; margin-bottom: 15px;">پکیج تک جلسه ای</span>
                                                             <div class="subtitle" style="color: var(--secondary); font-size: 18px;">
-                                                                <span class="teacher-income--01session">0</span>
+                                                                <span>100,000</span>
                                                                 <span style="font-size: 16px;">تومان</span>
                                                             </div>
                                                         </div>
@@ -341,7 +341,7 @@
                                                         <div class="admin-panel_item text-center" style="padding-top: 15px; padding-bottom: 15px; margin-bottom: 15px; border-radius: 6px; border: 1px solid #eee; border-bottom: 3px solid #e3e3e3;">
                                                             <span class="title" style="color: #666; display: block; margin-bottom: 15px;">پکیج پنج جلسه ای</span>
                                                             <div class="subtitle" style="color: var(--secondary); font-size: 18px;">
-                                                                <span class="teacher-income--05session">0</span>
+                                                                <span>500,000</span>
                                                                 <span style="font-size: 16px;">تومان</span>
                                                             </div>
                                                         </div>
@@ -350,7 +350,7 @@
                                                         <div class="admin-panel_item text-center" style="padding-top: 15px; padding-bottom: 15px; margin-bottom: 15px; border-radius: 6px; border: 1px solid #eee; border-bottom: 3px solid #e3e3e3;">
                                                             <span class="title" style="color: #666; display: block; margin-bottom: 15px;">پکیج ده جلسه ای</span>
                                                             <div class="subtitle" style="color: var(--secondary); font-size: 18px;">
-                                                                <span class="teacher-income--10session">0</span>
+                                                                <span">1,000,000</span>
                                                                 <span style="font-size: 16px;">تومان</span>
                                                             </div>
                                                         </div>
@@ -359,8 +359,8 @@
                                                         <div class="admin-panel_item text-center" style="padding-top: 15px; padding-bottom: 15px; margin-bottom: 15px; border-radius: 6px; border: 1px solid #eee; border-bottom: 3px solid #e3e3e3;">
                                                             <span class="title" style="color: #666; display: block; margin-bottom: 15px;">کلاس آزمایشی</span>
                                                             <div class="subtitle" style="color: var(--secondary); font-size: 18px;">
-                                                                <span class="teacher-income--trial">0</span>
-                                                                <span class="teacher-income--trial--text" style="font-size: 16px;">تومان</span>
+                                                                <span>10,000</span>
+                                                                <span style="font-size: 16px;">تومان</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -375,13 +375,13 @@
                                                 <div class="row" style="margin-bottom: 30px;">
                                                     <div class="col-lg-6">
                                                         <div class="form-item">
-                                                            <label class="form-label">قیمت جلسه آزمایشی (با <i style="font-style: normal !important;" class="admin-pricing__set--fees">0</i>٪ کمیسیون)</label>
-                                                            <div class="input-select admin-pricing__get--trial">
+                                                            <label class="form-label">قیمت جلسه آزمایشی (با ۱۵٪ کمیسیون)</label>
+                                                            <div class="input-select">
                                                                 <select class="el-select2" required oninvalid="this.setCustomValidity('لطفا یک گزینه رو انتخاب کنید.')" oninput="this.setCustomValidity('')">
                                                                     <option value="">&nbsp;</option>
                                                                     <option value="0">رایگان</option>
                                                                     <option value="5000">5000 تومان</option>
-                                                                    <option value="10000" selected>10000 تومان</option>
+                                                                    <option value="10000" selected="selected">10000 تومان</option>
                                                                     <option value="15000">15000 تومان</option>
                                                                     <option value="20000">20000 تومان</option>
                                                                     <option value="25000">25000 تومان</option>
