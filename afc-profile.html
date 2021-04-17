@@ -1850,11 +1850,15 @@
                                     </div>
                                     <div data-step-to="2">
                                         <span class="afc-stepper__tracker__number">2</span>
-                                        <span class="afc-stepper__tracker__heading">تعیین زمان بندی</span>
+                                        <span class="afc-stepper__tracker__heading">زمان بندی</span>
                                     </div>
                                     <div data-step-to="3">
                                         <span class="afc-stepper__tracker__number">3</span>
                                         <span class="afc-stepper__tracker__heading">تایید قوانین</span>
+                                    </div>
+                                    <div data-step-to="4" class="not-clickable">
+                                        <span class="afc-stepper__tracker__number">4</span>
+                                        <span class="afc-stepper__tracker__heading">پرداخت</span>
                                     </div>
                                 </div>
                                 <!--/.Tracker-->
@@ -1863,11 +1867,19 @@
                                     <!--Step-->
                                     <div class="afc-stepper__step active" data-step-id="1">
                                         <div class="afc-stepper__content">
-                                            <p class="afc-stepper__content__heading">لطفا نوع پکیج مورد نظر را انتخاب
-                                                کنید:</p>
-                                            <div class="el-card" data-set-sessions="0">
+                                            <p class="afc-stepper__content__heading">لطفا نوع پکیج مورد نظر را انتخاب کنید:</p>
+                                            <div class="el-card" data-set-sessions="free">
                                                 <div class="afc-stepper__content__price">
                                                     <span class="text-danger">رایگان</span>
+                                                </div>
+                                                <div class="afc-stepper__content__title">
+                                                    <span>یک جلسه آزمایشی</span>
+                                                    <small> ( 60 دقیقه ) </small>
+                                                </div>
+                                            </div>
+                                            <div class="el-card" data-set-sessions="0" data-free-session="false">
+                                                <div class="afc-stepper__content__price">
+                                                    <span>15,000 تومان</span>
                                                 </div>
                                                 <div class="afc-stepper__content__title">
                                                     <span>یک جلسه آزمایشی</span>
@@ -2301,6 +2313,84 @@
                                         </div>
                                     </div>
                                     <!--/.Step-->
+                                    <!--Step-->
+                                    <div class="afc-stepper__step" data-step-id="4">
+                                        <div class="afc-stepper__content">
+                                            <div class="display-if-session-was-nonfree">
+                                                <h4>انتخاب شیوه پرداخت:</h4>
+                                                <p>پس از پرداخت موفق، در صورت عدم رضایت امکان تغییر استاد نیز وجود دارد <br> پس از پرداخت موفق خواهید توانست زمان کلاس های خود را از روی تقویم استاد به صورت یکجا و یا تدریجی انتخاب نمایید</p>
+                                                <form class="form-3 pt-30">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-item">
+                                                                <label class="form-label">شیوه پرداخت:</label>
+                                                                <select>
+                                                                    <option value="0">پرداخت از طریق درگاه بانک</option>
+                                                                    <option value="1">کسر اعتبار از کیف پول و پرداخت باقی مانده</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="display-if-session-was-free status-default">
+                                                <div class="">
+                                                    <div class="f-modal-alert">
+                                                        <!--Warning-->
+                                                        <div class="f-modal-icon f-modal-warning scaleWarning">
+                                                            <span class="f-modal-body pulseWarningIns"></span>
+                                                            <span class="f-modal-dot pulseWarningIns"></span>
+                                                        </div>
+                                                        <!--/-->
+                                                        <!--Error-->
+                                                        <div class="f-modal-icon f-modal-error animate">
+                                                            <span class="f-modal-x-mark">
+                                                                <span class="f-modal-line f-modal-left animateXLeft"></span>
+                                                                <span class="f-modal-line f-modal-right animateXRight"></span>
+                                                            </span>
+                                                            <div class="f-modal-placeholder"></div>
+                                                            <div class="f-modal-fix"></div>
+                                                        </div>
+                                                        <!--/-->
+                                                        <!--success-->
+                                                        <div class="f-modal-icon f-modal-success animate">
+                                                            <span class="f-modal-line f-modal-tip animateSuccessTip"></span>
+                                                            <span class="f-modal-line f-modal-long animateSuccessLong"></span>
+                                                            <div class="f-modal-placeholder"></div>
+                                                            <div class="f-modal-fix"></div>
+                                                        </div>
+                                                        <!--/-->
+                                                    </div>
+                                                    <p class="message">لطفا چند لحظه صبر کنید.</p>
+                                                    <div class="row row-xs">
+                                                        <div class="col-6">
+                                                            <div class="teacher-small-card">
+                                                                <img src="assets/teacher-v2.jpg" alt="alt">
+                                                                <p><span>علیرضا کیخای مقدم</span></p>
+                                                                <p><span class="afc-sticky-reserve_teacher_count"> ۱ جلسه آزمایشی</span> - <span class="afc-sticky-reserve_teacher_price" data-price="25000" data-price-plan-0="15,000" data-price-plan-1="25,000" data-price-plan-5="125,000" data-price-plan-10="250,000">رایگان</span></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="stepper__selected-times">
+                                                                <span class="d-block stepper__selected-times__title">زمان انتخاب شده:</span>
+                                                                <ul>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="stepper__step-4__links text-center">
+                                                        <a href="#" class="button button-sm button-secondary">
+                                                            <span class="button_text">کلاس های من</span>
+                                                        </a>
+                                                        <a href="#" class="button button-sm button-primary">
+                                                            <span class="button_text">لیست اساتید</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/.Step-->
                                 </div>
                                 <!--/.Stepper-Wrapper-->
                                 <div class="afc-selected-times">
@@ -2358,7 +2448,7 @@
                         <div class="afc-sticky-reserve_teacher">
                             <img src="assets/teacher-v2.jpg" alt="alt">
                             <p>رزرو کلاس با <span>علیرضا کیخای مقدم</span></p>
-                            <p><span class="afc-sticky-reserve_teacher_count"></span> - <span class="afc-sticky-reserve_teacher_price" data-price="25000"></span></p>
+                            <p><span class="afc-sticky-reserve_teacher_count"></span> - <span class="afc-sticky-reserve_teacher_price" data-price="25000" data-price-plan-0="15,000" data-price-plan-1="25,000" data-price-plan-5="125,000" data-price-plan-10="250,000"></span></p>
                         </div>
                         <div class="afc-sticky-reserve_mobile">
                             <div class="afc-sticky-reserve_mobile_btn">
@@ -2369,9 +2459,9 @@
                                 <div>
                                     <p>زمان های انتخاب شده</p>
                                     <span class="afc-sticky-reserve_mobile_modal_close"><i class="fa fa-times"></i> بستن</span>
-                                    <div class="afc-sticky-reserve_mobile_modal_list">
+                                    <ul class="afc-sticky-reserve_mobile_modal_list">
 
-                                    </div>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -2392,10 +2482,24 @@
                                 </button>
                             </div>
                             <div data-chain-id="3">
-                                <form id="afc-form-calendar-times-v2" action="http://httpbin.org/post" method="POST" class="afc-form">
+                                <button class="button button-md button-primary stepper-normal-button" data-step-to="4">
+                                    <span class="text">تایید قوانین</span>
+                                </button>
+                                <button class="button button-md button-primary stepper-ajax-button" data-step-to="4">
+                                    <span class="text">تایید قوانین ajax</span>
+                                </button>
+                                <!-- <form id="afc-form-calendar-times-v2" action="http://httpbin.org/post" method="POST" class="afc-form">
                                     <input type="hidden" name="package" class="afc-form-input-package" />
                                     <button class="button button-md button-primary" type="submit">
                                         <span class="text">پذیرفتن قوانین و ثبت کلاس</span>
+                                    </button>
+                                </form> -->
+                            </div>
+                            <div data-chain-id="4">
+                                <form id="afc-form-calendar-times-v2" action="http://httpbin.org/post" method="POST" class="afc-form">
+                                    <input type="hidden" name="package" class="afc-form-input-package" />
+                                    <button class="button button-md button-primary" type="submit">
+                                        <span class="text">ثبت کلاس و پرداخت هزینه</span>
                                     </button>
                                 </form>
                             </div>

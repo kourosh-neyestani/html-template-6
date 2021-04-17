@@ -699,7 +699,7 @@ var AFRA = {};
     AFRA.Calendar_v2 = function () {
         var form = $("#afc-form-calendar-times-v2");
         var calendar = $(".afc-calendar[data-clickable='true']");
-        var selected = $(".afc-selected-times").find("ul");
+        var selected = $(".afc-selected-times, .stepper__selected-times").find("ul");
         var selected2 = $(".afc-sticky-reserve_mobile_modal_list");
 
         if (!calendar.length) {
@@ -736,7 +736,7 @@ var AFRA = {};
                     console.log("Error: Element dose't exist in Classes[].");
                 }
             } else {
-                if (session === 0) {
+                if (session === 0 || session === "free") {
                     if (classes.length === 0) {
                         that.addClass("selected");
                         classes.push(time);
@@ -850,12 +850,15 @@ var AFRA = {};
             $(".afc-sticky-reserve_mobile_btn").removeClass("active");
         }
 
-        if (session === 0) {
-            $(".afc-sticky-reserve_teacher_count").html(" ۱ جلسه رایگان");
-            $(".afc-sticky-reserve_teacher_price").html("");
+        if (session === "free") {
+            $(".afc-sticky-reserve_teacher_count").html(" ۱ جلسه آزمایشی");
+            $(".afc-sticky-reserve_teacher_price").html("رایگان");
+        } else if (session === 0) {
+            $(".afc-sticky-reserve_teacher_count").html(" ۱ جلسه آزمایشی");
+            $(".afc-sticky-reserve_teacher_price").html($(".afc-sticky-reserve_teacher_price").data("price-plan-0") + " تومان");
         } else if (session !== "undefined") {
             $(".afc-sticky-reserve_teacher_count").html(session + " جلسه خصوصی");
-            $(".afc-sticky-reserve_teacher_price").html(session * parseInt($(".afc-sticky-reserve_teacher_price").data("price")) + " تومان");
+            $(".afc-sticky-reserve_teacher_price").html($(".afc-sticky-reserve_teacher_price").data(`price-plan-${session}`) + " تومان");
         }
 
         if ($(".afc-sticky-reserve_mobile_btn_count").length) {
@@ -866,6 +869,62 @@ var AFRA = {};
     };
 
     /*====== Stepper v2.0 ======*/
+    // AFRA.Stepper_v2 = function () {
+    //     var stepper = $(".afc-stepper");
+
+    //     if (!stepper.length) {
+    //         return;
+    //     }
+
+    //     var link = $("[data-step-to]"),
+    //         chain = $(".active[data-chain-to]");
+
+    //     link.on("click", function (e) {
+    //         e.preventDefault();
+
+    //         if (typeof session == "undefined") {
+    //             return;
+    //         }
+
+    //         var step_id = $(this).data("step-to");
+
+    //         if (step_id === 3) {
+    //             if (classes.length === 0 && !$(this).hasClass("button-default")) {
+    //                 return;
+    //             } else {
+    //                 $("[data-step-id]").removeClass("active");
+    //                 $("[data-step-to]").removeClass("active");
+    //                 $('[data-step-id="3"]').addClass("active");
+    //                 $('[data-step-to="3"]').addClass("active");
+    //                 $("[data-chain-id]").removeClass("active");
+    //                 $('[data-chain-id="3"]').addClass("active");
+    //             }
+    //         } else if (step_id === 2) {
+    //             $("[data-step-id]").removeClass("active");
+    //             $("[data-step-to]").removeClass("active");
+    //             $('[data-step-id="2"]').addClass("active");
+    //             $('[data-step-to="2"]').addClass("active");
+    //             $("[data-chain-id]").removeClass("active");
+    //             $('[data-chain-id="2"]').addClass("active");
+    //         } else if (step_id === 1) {
+    //             $("[data-step-id]").removeClass("active");
+    //             $("[data-step-to]").removeClass("active");
+    //             $('[data-step-id="1"]').addClass("active");
+    //             $('[data-step-to="1"]').addClass("active");
+    //             $("[data-chain-id]").removeClass("active");
+    //             $('[data-chain-id="1"]').addClass("active");
+    //         }
+    //     });
+
+    //     chain.on("click", function () {
+    //         var chain_id = $(this).data("chain-to");
+
+    //         $("[data-chain-to]").removeClass("active");
+    //         $('[data-chain-to="' + chain_id + '"]').addClass("active");
+    //     });
+    // };
+    /*====== Stepper v2.0 ======*/
+
     AFRA.Stepper_v2 = function () {
         var stepper = $(".afc-stepper");
 
@@ -883,9 +942,30 @@ var AFRA = {};
                 return;
             }
 
+            if ($(this).hasClass("not-clickable")) {
+                return;
+            }
+
             var step_id = $(this).data("step-to");
 
-            if (step_id === 3) {
+            if (step_id === 4) {
+                $("[data-step-id]").removeClass("active");
+                $("[data-step-to]").removeClass("active");
+                $('[data-step-id="4"]').addClass("active");
+                $('[data-step-to="4"]').addClass("active");
+                $("[data-chain-id]").removeClass("active");
+                $('[data-chain-id="4"]').addClass("active");
+
+                if (session === "free") {
+                    $(".display-if-session-was-free").show();
+                    $(".display-if-session-was-nonfree").hide();
+                } else {
+                    $(".display-if-session-was-free").hide();
+                    $(".display-if-session-was-nonfree").show();
+                }
+
+            } else if (step_id === 3) {
+                $(".afc-sticky-reserve").addClass("active");
                 if (classes.length === 0 && !$(this).hasClass("button-default")) {
                     return;
                 } else {
@@ -897,6 +977,7 @@ var AFRA = {};
                     $('[data-chain-id="3"]').addClass("active");
                 }
             } else if (step_id === 2) {
+                $(".afc-sticky-reserve").addClass("active");
                 $("[data-step-id]").removeClass("active");
                 $("[data-step-to]").removeClass("active");
                 $('[data-step-id="2"]').addClass("active");
@@ -904,6 +985,7 @@ var AFRA = {};
                 $("[data-chain-id]").removeClass("active");
                 $('[data-chain-id="2"]').addClass("active");
             } else if (step_id === 1) {
+                $(".afc-sticky-reserve").addClass("active");
                 $("[data-step-id]").removeClass("active");
                 $("[data-step-to]").removeClass("active");
                 $('[data-step-id="1"]').addClass("active");
@@ -918,6 +1000,8 @@ var AFRA = {};
 
             $("[data-chain-to]").removeClass("active");
             $('[data-chain-to="' + chain_id + '"]').addClass("active");
+
+            $(".afc-sticky-reserve").addClass("active");
         });
     };
 
@@ -1016,9 +1100,11 @@ var AFRA = {};
         $("[data-set-sessions]").on("click", function (e) {
             e.preventDefault();
 
+            $(".afc-sticky-reserve").addClass("active");
+
             var value = $(this).data("set-sessions"),
-                selected = $(".afc-selected-times").find("ul"),
-                selected2 = $(".afc-sticky-reserve_mobile_list"),
+                selected = $(".afc-selected-times, .stepper__selected-times").find("ul"),
+                selected2 = $(".afc-sticky-reserve_mobile_list, .afc-sticky-reserve_mobile_modal_list"),
                 inputs = $("#afc-form-calendar-times-v2").find("[data-input-for-classes]");
 
             classes = [];
@@ -1028,6 +1114,14 @@ var AFRA = {};
 
             if (inputs.length) {
                 inputs.remove();
+            }   
+            // Kourosh
+            if (session === "free") {
+                $(".stepper-ajax-button").show()
+                $(".stepper-normal-button").hide()
+            } else {
+                $(".stepper-ajax-button").hide()
+                $(".stepper-normal-button").show()
             }
 
             $(".afc-selected-times__title").hide();
@@ -1286,6 +1380,51 @@ var AFRA = {};
         });
     };
 
+    AFRA.Stepper_Ajax_Button = function () {
+        $(".stepper-ajax-button").on("click", function() {
+            var url = "http://httpbin.org/post";
+
+            $(".afc-sticky-reserve").removeClass("active");
+
+            $.ajax({
+                url: url,
+                type: "post",
+                data: {
+                    package: session,
+                    classes: classes,
+                },
+                success: function (data, textStatus, xhr) {
+                    if (xhr.status === 200) {
+                        $(".display-if-session-was-free").removeClass("status-default");
+                        $(".display-if-session-was-free").addClass("status-success");
+                        $(".display-if-session-was-free").find(".message").text("رزرو با موفقیت صورت گرفت.")
+                    } else {
+                        $(".display-if-session-was-free").removeClass("status-default");
+                        $(".display-if-session-was-free").addClass("status-error");
+                        $(".display-if-session-was-free").find(".message").text("رزرو کلاس با مشکل رو‌به‌رو شد.")
+                        if (typeof data.message !== "undefined") {
+                            $(".display-if-session-was-free").find(".message").text(data.message);
+                        } else {
+                            $(".display-if-session-was-free").find(".message").text("رزرو کلاس با مشکل رو‌به‌رو شد.")
+                            $(".display-if-session-was-free").find(".message").text("رزرو کلاس با مشکل رو‌به‌رو شد.")
+                        }
+                    }
+                },
+                error: function () {
+                    $(".display-if-session-was-free").removeClass("status-default");
+                    $(".display-if-session-was-free").addClass("status-error");
+                    $(".display-if-session-was-free").find(".message").text("رزرو کلاس با مشکل رو‌به‌رو شد.")
+                    console.log("مشکلی در برقراری ارتباط با سرور پیش آمده، کمی بعد تر دوباره امتحان کنید.");
+                },
+                complete: function (xhr, textStatus) {
+                    if (xhr.status !== 200) {
+                        alert("مشکلی در برقراری ارتباط با سرور پیش آمده، کمی بعد تر دوباره امتحان کنید.");
+                    }
+                },
+            });
+        });
+    }
+
     $(document).ready(function () {
         AFRA.Select2_v2();
         AFRA.Stepper_v2();
@@ -1293,6 +1432,7 @@ var AFRA = {};
         AFRA.CalendarCarousel_v2();
         AFRA.CalendarSetSessions_v2();
         AFRA.RegisterForm_v2();
+        AFRA.Stepper_Ajax_Button();
 
         $(".afc-sticky-reserve_mobile_btn").on("click", function () {
             var modal = $(this).siblings(".afc-sticky-reserve_mobile_modal");
