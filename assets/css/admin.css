@@ -1066,3 +1066,77 @@ table.dataTable thead th, table.dataTable thead td {
 @media (min-width: 992px) {
     
 }
+
+/*------------------------------------
+    Admin: Classes
+------------------------------------*/
+.afc-classes .item {
+    overflow: hidden;
+    position: relative;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 2px 0 rgba(140, 152, 164, 0.25);
+}
+.afc-classes .item p {
+    font-size: 12px;
+    line-height: 1;
+}
+.afc-classes .item .flag {
+    top: -3px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    position: relative;
+}
+.afc-classes .item .item__avatar {
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 6px;
+}
+.afc-classes .item .item__avatar img {
+    width: 100%;
+    display: block;
+}
+.afc-classes .item .item__detail {
+    padding: 0 20px 0 30px;
+    border-left: 1px solid #eee;
+}
+.afc-classes .item .item__detail .name {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+@media (max-width: 992px) {
+    .afc-classes .item {
+        display: block !important;
+    }
+    .afc-classes .item .item__detail {
+        padding-left: 0;
+        border-left: 0;
+        margin-bottom: 10px;
+    }
+    .afc-classes .item .item__links {
+        width: 100%;
+        display: block;
+        text-align: left;
+    }
+    .afc-classes .item .item__links .item__links__buttons {
+        display: flex;
+    }
+    .afc-classes .item .item__links .item__links__buttons .button {
+        width: 48%;
+        text-align: center;
+    }
+    .sm-db {
+        display: block;
+    }
+}
+@media (max-width: 992px) {
+    .admin-tabs_links {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
