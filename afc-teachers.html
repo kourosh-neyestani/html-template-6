@@ -757,112 +757,138 @@
         <div class="page page-teachers">
             <!--Teachers-->
             <section class="section section-teachers section-teachers-list section-teachers-list-1">
-                <figure class="section-shape shape-2">
-                    <img src="assets/images/shapes/2.svg" alt="Image Description" />
-                </figure>
-                <figure class="section-shape shape-3">
-                    <img src="assets/images/shapes/3.svg" alt="Image Description" />
-                </figure>
                 <div class="display-spacing display-spacing-plus">
                     <div class="section-fluid">
                         <div class="section-row row">
-                            <div id="sidenav-filter" class="section-sidebar col-sm-6 col-md-4 col-lg-4 col-xl-3">
-                                <span class="sidenav-filter-close"></span>
+                            <div id="sidenav-filter-2" class="section-sidebar col-sm-6 col-md-4 col-lg-4 col-xl-3">
                                 <div class="sticky-sidebar">
-                                    <div class="sidebar-inner el-card">
-                                        <form class="form-2">
-                                            <!--Form-Item-->
-                                            <div class="form-item">
-                                                <select class="el-select2-flag" name="flag">
-                                                    <option value="">&nbsp;</option>
-                                                    <option value="uk">انگلیسی</option>
-                                                    <option value="france">فرانسوی</option>
-                                                    <option value="spain">اسپانیا</option>
-                                                    <option value="germany">آلمانی</option>
-                                                    <option value="iran">فارسی</option>
-                                                </select>
-                                            </div>
-                                            <!--Form-Item-->
-                                            <div class="form-item">
-                                                <select class="el-select2-tag" name="tag">
-                                                    <option value="">&nbsp;</option>
-                                                    <option value="1">برچسب جدید برای زبان</option>
-                                                    <option value="2">برچسب جدید برای زبان</option>
-                                                    <option value="3">برچسب جدید برای زبان</option>
-                                                    <option value="4">برچسب جدید برای زبان</option>
-                                                    <option value="5">برچسب جدید برای زبان</option>
-                                                    <option value="6">برچسب جدید برای زبان</option>
-                                                </select>
-                                            </div>
-                                            <!--Form-Item-->
-                                            <div class="form-item">
-                                                <select class="el-select2-level" name="level">
-                                                    <option value="">&nbsp;</option>
-                                                    <option value="1">تازه کار</option>
-                                                    <option value="2">متوسط</option>
-                                                    <option value="3">پیشرفته</option>
-                                                </select>
-                                            </div>
-                                            <!--Form-Item-->
-                                            <div class="form-item">
-                                                <select class="el-select2-gender" name="gender">
-                                                    <option value="">&nbsp;</option>
-                                                    <option value="1">همه</option>
-                                                    <option value="2">زن</option>
-                                                    <option value="3">مرد</option>
-                                                </select>
-                                            </div>
-                                            <!--Form-Item-->
-                                            <div class="form-item">
-                                                <select class="el-select2-age" name="age">
-                                                    <option value="">&nbsp;</option>
-                                                    <option value="1">کودکان (۴ تا ۱۱)</option>
-                                                    <option value="1">نوجوانان (۱۲ تا ۱۸)</option>
-                                                    <option value="1">بزرگسالان (۱۸+)</option>
-                                                </select>
-                                            </div>
-                                            <!--Form-Item-->
-                                            <div class="form-item">
-                                                <select class="el-select2-price" name="price">
-                                                    <option value="">&nbsp;</option>
-                                                    <option value="1">تا ۳۰ هزار تومان</option>
-                                                    <option value="1">تا ۶۰ هزار تومان</option>
-                                                    <option value="1">تا ۹۰ هزار تومان</option>
-                                                    <option value="1">تا ۱۲۰ هزار تومان</option>
-                                                    <option value="1">تا ۱۵۰ هزار تومان</option>
-                                                </select>
-                                            </div>
-                                            <!--Form-Item-->
-                                            <div class="form-item">
-                                                <select class="el-select2-day" name="day[]" multiple="multiple">
-                                                    <option value="">&nbsp;</option>
-                                                    <option value="1">شنبه</option>
-                                                    <option value="1">یک شنبه</option>
-                                                    <option value="1">دو شنبه</option>
-                                                    <option value="1">سه شنبه</option>
-                                                    <option value="1">چهار شنبه</option>
-                                                    <option value="1">چنج شنبه</option>
-                                                    <option value="1">جمعه</option>
-                                                </select>
-                                            </div>
-                                            <!--Form-Item-->
-                                            <div class="form-item">
-                                                <select class="el-select2-hour" name="hour">
-                                                    <option value="">&nbsp;</option>
-                                                    <option value="1">صبح - از ساعت 8 تا 12</option>
-                                                    <option value="1">ظهر - از ساعت 12 تا 16</option>
-                                                    <option value="1">عصر - از ساعت 16 صبح تا 20</option>
-                                                    <option value="1">شب - از ساعت 20 صبح تا 24</option>
-                                                </select>
-                                            </div>
-                                            <!--Form-Item-->
-                                            <div class="form_item form_item--switch" style="padding-bottom: 15px;margin-bottom: 20px; border-bottom: 1px solid var(--gray)">
-                                                <input type="checkbox" id="switch-id-1">
-                                                <label for="switch-id-1"><span>جلسه آزمایشی رایگان</span></label>
-                                            </div>
-                                            <!--Form-Button-->
-                                            <button class="button button-md button-block button-primary">جستجوی استاد</button>
-                                        </form>
+                                    <div class="sidebar-filter__header" style="display: none">
+                                        <span class="title">جستجوی استاد</span>
+                                        <span class="close sidebar-filter__close">&#x2715</span>
+                                    </div>
+                                    <div class="sidebar-filter__body">
+                                        <div class="sidebar-inner el-card">
+                                            <form class="form-2">
+                                                <!--Form-Item-->
+                                                <div class="form-item">
+                                                    <select class="el-select2-flag" name="flag">
+                                                        <option value="">&nbsp;</option>
+                                                        <option value="uk">انگلیسی</option>
+                                                        <option value="france">فرانسوی</option>
+                                                        <option value="spain">اسپانیا</option>
+                                                        <option value="germany">آلمانی</option>
+                                                        <option value="iran">فارسی</option>
+                                                    </select>
+                                                </div>
+                                                <!--Form-Item-->
+                                                <div class="form-item">
+                                                    <select class="el-select2-tag" name="tag">
+                                                        <option value="">&nbsp;</option>
+                                                        <option value="1">برچسب جدید برای زبان</option>
+                                                        <option value="2">برچسب جدید برای زبان</option>
+                                                        <option value="3">برچسب جدید برای زبان</option>
+                                                        <option value="4">برچسب جدید برای زبان</option>
+                                                        <option value="5">برچسب جدید برای زبان</option>
+                                                        <option value="6">برچسب جدید برای زبان</option>
+                                                    </select>
+                                                </div>
+                                                <!--Form-Item-->
+                                                <div class="form-item">
+                                                    <select class="el-select2-level" name="level">
+                                                        <option value="">&nbsp;</option>
+                                                        <option value="1">تازه کار</option>
+                                                        <option value="2">متوسط</option>
+                                                        <option value="3">پیشرفته</option>
+                                                    </select>
+                                                </div>
+                                                <!--Form-Item-->
+                                                <div class="form-item">
+                                                    <select class="el-select2-gender" name="gender">
+                                                        <option value="">&nbsp;</option>
+                                                        <option value="1">همه</option>
+                                                        <option value="2">زن</option>
+                                                        <option value="3">مرد</option>
+                                                    </select>
+                                                </div>
+                                                <!--Form-Item-->
+                                                <div class="form-item">
+                                                    <select class="el-select2-age" name="age">
+                                                        <option value="">&nbsp;</option>
+                                                        <option value="1">کودکان (۴ تا ۱۱)</option>
+                                                        <option value="1">نوجوانان (۱۲ تا ۱۸)</option>
+                                                        <option value="1">بزرگسالان (۱۸+)</option>
+                                                    </select>
+                                                </div>
+                                                <!--Form-Item-->
+                                                <div class="form-item">
+                                                    <select class="el-select2-price" name="price">
+                                                        <option value="">&nbsp;</option>
+                                                        <option value="1">تا ۳۰ هزار تومان</option>
+                                                        <option value="1">تا ۶۰ هزار تومان</option>
+                                                        <option value="1">تا ۹۰ هزار تومان</option>
+                                                        <option value="1">تا ۱۲۰ هزار تومان</option>
+                                                        <option value="1">تا ۱۵۰ هزار تومان</option>
+                                                    </select>
+                                                </div>
+                                                <!--Form-Item-->
+                                                <div class="form-item">
+                                                    <select class="el-select2-day" name="day[]" multiple="multiple">
+                                                        <option value="">&nbsp;</option>
+                                                        <option value="1">شنبه</option>
+                                                        <option value="1">یک شنبه</option>
+                                                        <option value="1">دو شنبه</option>
+                                                        <option value="1">سه شنبه</option>
+                                                        <option value="1">چهار شنبه</option>
+                                                        <option value="1">چنج شنبه</option>
+                                                        <option value="1">جمعه</option>
+                                                    </select>
+                                                </div>
+                                                <!--Form-Item-->
+                                                <div class="form-item">
+                                                    <select class="el-select2-hour" name="hour">
+                                                        <option value="">&nbsp;</option>
+                                                        <option value="1">صبح - از ساعت 8 تا 12</option>
+                                                        <option value="1">ظهر - از ساعت 12 تا 16</option>
+                                                        <option value="1">عصر - از ساعت 16 صبح تا 20</option>
+                                                        <option value="1">شب - از ساعت 20 صبح تا 24</option>
+                                                    </select>
+                                                </div>
+                                                <!--Form-Item-->
+                                                <div class="form_item form_item--switch" style="padding-bottom: 15px;margin-bottom: 20px; border-bottom: 1px solid var(--gray)">
+                                                    <input type="checkbox" id="has-trial-session" name="trial">
+                                                    <label for="has-trial-session"><span>جلسه آزمایشی رایگان</span></label>
+                                                </div>
+                                                 <!--Form-Item-->
+                                                 <div class="form-item form-item--price" style="margin-bottom: 0 !important;">
+                                                     <label for="" class="form-label">محدوده قیمت مورد نظر</label>
+                                                    <div class="filter-price">
+                                                        <div class="filter-slider">
+                                                            <div id="slider-non-linear-step" class="price-slider"></div>
+                                                        </div>
+                                                        <ul class="filter-range mt-3">
+                                                            <li>
+                                                                <span>از</span>
+                                                                <input type="text" data-value="0" value="0" name="price[min]" data-range="0" class="js-slider-range-from disabled example-val" id="skip-value-lower" disabled="disabled">
+                                                                <span class="sym">تومان</span>
+                                                            </li>
+                                                            <li>
+                                                                <span>تا</span>
+                                                                <input type="text" data-value="500000" value="500000" name="price[max]" data-range="500000" class="js-slider-range-to disabled example-val" id="skip-value-upper" disabled="disabled">
+                                                                <span class="sym">تومان</span>
+                                                            </li>
+                                                        </ul>
+                                                        <button class="button button-sm button-block button-default btn-filter-price">
+                                                            <span class="button_text">اعمال محدوده قیمت</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="sidebar-filter__footer" style="display: none">
+                                        <button class="button button-md button-primary button-block sidebar-filter__close" type="button">
+                                            <span class="button__text">جستجوی پیشرفته</span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>

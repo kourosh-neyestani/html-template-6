@@ -48,6 +48,11 @@ var AFRA = {};
             return $state;
         }
 
+        // will prevent keyboard from showing on multiple select
+        $(document).on('touchend', function(){
+            $(".select2-focusser").remove();
+        })
+
         $(".el-select2").select2({
             dir: "rtl",
             placeholder: "",
@@ -70,6 +75,7 @@ var AFRA = {};
             dir: "rtl",
             placeholder: "مهارت مورد نیاز",
             templateResult: formatDefault,
+            minimumResultsForSearch: -1
         });
 
         $(".el-select2-teacher-skills").select2({
@@ -89,18 +95,23 @@ var AFRA = {};
             dir: "rtl",
             placeholder: "بر اساس روز",
             templateResult: formatDefault,
+            minimumResultsForSearch: -1,
+            dropdownCssClass : 'no-search'
         });
 
         $(".el-select2-hour").select2({
             dir: "rtl",
             placeholder: "بر اساس ساعت",
             templateResult: formatDefault,
+            minimumResultsForSearch: -1,
+            dropdownCssClass : 'no-search'
         });
-
+        
         $(".el-select2-gender").select2({
             dir: "rtl",
             placeholder: "جنسیت استاد",
             templateResult: formatDefault,
+            minimumResultsForSearch: -1
         });
 
         $(".el-select2-gender-empty").select2({
@@ -120,24 +131,28 @@ var AFRA = {};
             dir: "rtl",
             placeholder: "سن مخاطب",
             templateResult: formatDefault,
+            minimumResultsForSearch: -1
         });
 
         $(".el-select2-price").select2({
             dir: "rtl",
             placeholder: "بر اساس قیمت",
             templateResult: formatDefault,
+            minimumResultsForSearch: -1
         });
 
         $(".el-select2-level").select2({
             dir: "rtl",
             placeholder: "سطح زبان فعلی شما",
             templateResult: formatDefault,
+            minimumResultsForSearch: -1
         });
 
         $(".el-select2-flag").select2({
             dir: "rtl",
             placeholder: "جستجوی زبان",
             templateResult: formatFlags,
+            minimumResultsForSearch: -1
         });
 
         $(".el-select2-register").select2({
@@ -587,8 +602,8 @@ var AFRA = {};
     AFRA.SidenavFilter = function () {
         var body = $("body");
         var button = $(".button-open-sidenav-filter");
-        var sidenav = $("#sidenav-filter");
-        var buttonClose = $(".sidenav-filter-close");
+        var sidenav = $("#sidenav-filter, #sidenav-filter-2");
+        var buttonClose = $(".sidebar-filter__close")
         button.on("click", function (e) {
             e.preventDefault();
             body.addClass("state-menu");
@@ -614,12 +629,14 @@ var AFRA = {};
             body.addClass("state-menu");
             sidenav.addClass("active");
             $("#sidenav-filter").removeClass("active");
+            $(".afc-sticky-filter").hide();
         });
         buttonClose.on("click", function (e) {
             e.preventDefault();
             body.removeClass("state-menu");
             sidenav.removeClass("active");
             $("#sidenav-filter").removeClass("active");
+            $(".afc-sticky-filter").show();
         });
     };
 
@@ -1519,5 +1536,43 @@ $(document).ready(function () {
 
     $(document).ready(function () {
         AFRA.AFC_TextSlider();
+    });
+})(jQuery);
+
+(function ($) {
+    /*====== Widget: Filter price ======*/
+    AFRA.Widget_Price = function () {
+        if ($("#slider-non-linear-step").length) {
+            var skipSlider = document.getElementById("slider-non-linear-step");
+            var $sliderFrom = document.querySelector(".js-slider-range-from");
+            var $sliderTo = document.querySelector(".js-slider-range-to");
+            var min = parseInt($sliderFrom.dataset.range),
+                max = parseInt($sliderTo.dataset.range);
+
+            noUiSlider.create(skipSlider, {
+                start: [$sliderFrom.value, $sliderTo.value],
+                connect: true,
+                step: 1,
+                range: {
+                    min: min,
+                    max: max,
+                },
+                direction: "rtl",
+                format: wNumb({
+                    thousand: ",",
+                    decimals: 0,
+                }),
+            });
+
+            var skipValues = [document.getElementById("skip-value-lower"), document.getElementById("skip-value-upper")];
+
+            skipSlider.noUiSlider.on("update", function (values, handle) {
+                skipValues[handle].value = values[handle];
+            });
+        }
+    };
+
+    $(document).ready(function () {
+        AFRA.Widget_Price();
     });
 })(jQuery);
